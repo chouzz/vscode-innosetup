@@ -1,0 +1,75 @@
+{
+    "name": "innosetup",
+    "displayName": "Inno Setup",
+    "description": "Language syntax and snippets for Inno Setup",
+    "version": "0.1.1",
+    "publisher": "idleberg",
+    "license": "MIT",
+    "author": {
+        "name": "Jan T. Sott",
+        "url": "http://github.com/idleberg"
+    },
+    "keywords": [
+        "inno setup",
+        "innosetup",
+        "installer",
+        "setup",
+        "windows"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/idleberg/vscode-innosetup.git"
+    },
+    "bugs": {
+        "url": "https://github.com/idleberg/vscode-innosetup/issues"
+    },
+    "engines": {
+        "vscode": ">=1.0.0 <2.0.0"
+    },
+    "categories": [
+        "Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "innosetup",
+                "aliases": [
+                    "Inno Setup",
+                    "InnoSetup",
+                    "innosetup"
+                ],
+                "extensions": [
+                    ".isl",
+                    ".iss"
+                ],
+                "configuration": "./inno-setup.configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "innosetup",
+                "scopeName": "source.inno",
+                "path": "./syntaxes/inno-setup.tmLanguage"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "innosetup",
+                "path": "./snippets/inno-setup.json"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "gulp lint"
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1",
+        "gulp-debug": "^2.1.2",
+        "gulp-json-lint": "^0.1.0",
+        "gulp-xml-validator": "^0.1.1",
+        "gulp-yaml-validate": "^1.0.2",
+        "vscode": "^0.11.0"
+    }
+}
