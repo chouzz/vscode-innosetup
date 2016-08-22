@@ -48,7 +48,7 @@ With `ISCC` in your PATH [environmental variable](https://support.microsoft.com/
 "innosetup.pathToIscc": "/usr/local/bin/makensis"
 ```
 
-If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs ISCC on Wine.
+If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs `ISCC` on Wine.
 
 ## License
 
