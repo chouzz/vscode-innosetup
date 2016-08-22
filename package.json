@@ -25,7 +25,7 @@
         "url": "https://github.com/idleberg/vscode-innosetup/issues"
     },
     "engines": {
-        "vscode": ">=1.0.0 <2.0.0"
+        "vscode": "^1.0.0"
     },
     "categories": [
         "Languages",
