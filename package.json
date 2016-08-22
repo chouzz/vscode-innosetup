@@ -1,7 +1,7 @@
 {
     "name": "innosetup",
     "displayName": "Inno Setup",
-    "description": "Language syntax and snippets for Inno Setup",
+    "description": "Language syntax, snippets and build system for Inno Setup",
     "version": "0.1.2",
     "publisher": "idleberg",
     "license": "MIT",
@@ -24,14 +24,30 @@
     "bugs": {
         "url": "https://github.com/idleberg/vscode-innosetup/issues"
     },
+    "main": "./lib/main",
     "engines": {
         "vscode": "^1.0.0"
     },
     "categories": [
         "Languages",
-        "Snippets"
+        "Snippets",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:innosetup"
     ],
     "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Inno Setup",
+            "properties": {
+                "innosetup.pathToIscc": {
+                    "type": "string",
+                    "default": "ISCC.exe",
+                    "description": "Specify the full path to `ISCC`"
+                }
+            }
+        },
         "languages": [
             {
                 "id": "innosetup",
@@ -52,6 +68,12 @@
                 "language": "innosetup",
                 "scopeName": "source.inno",
                 "path": "./syntaxes/inno-setup.tmLanguage"
+            }
+        ],
+        "commands": [
+            {
+                "command": "extension.innosetup.compile",
+                "title": "InnoSetup: Save & Compile Script"
             }
         ],
         "snippets": [

@@ -5,7 +5,7 @@
 [![Travis](https://img.shields.io/travis/idleberg/vscode-innosetup.svg?style=flat-square)](https://travis-ci.org/idleberg/vscode-innosetup)
 [![David](https://img.shields.io/david/dev/idleberg/vscode-innosetup.svg?style=flat-square)](https://david-dm.org/idleberg/vscode-innosetup#info=devDependencies)
 
-Language syntax and snippets for Inno Setup
+Language syntax, snippets and build system for Inno Setup
 
 ![Screenshot](https://raw.githubusercontent.com/idleberg/vscode-innosetup/master/images/screenshot.png)
 
@@ -36,6 +36,19 @@ Clone repository as `innosetup`:
 ```bash
 $ git clone https://github.com/idleberg/vscode-innosetup innosetup
 ```
+## Usage
+
+### Building
+
+With `ISCC` in your PATH [environmental variable](https://support.microsoft.com/en-us/kb/310519), you build scripts through the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette). Alternatively, you can specify the path to `ISCC` to the [user settings](https://code.visualstudio.com/docs/customization/userandworkspace):
+
+**Example:**
+
+```json
+"innosetup.pathToIscc": "/usr/local/bin/makensis"
+```
+
+If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs ISCC on Wine.
 
 ## License
 
