@@ -2,7 +2,7 @@
     "name": "innosetup",
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "publisher": "idleberg",
     "license": "MIT",
     "author": {
