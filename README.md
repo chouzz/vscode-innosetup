@@ -45,7 +45,7 @@ Before you can build, make sure `ISCC` is in your PATH [environmental variable](
 **Example:**
 
 ```json
-"innosetup.pathToIscc": "/usr/local/bin/makensis"
+"innosetup.pathToIscc": "full\\path\\to\\ISCC.exe"
 ```
 
 To trigger a build, select *InnoSetup: Save & Compile”* from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd>.
