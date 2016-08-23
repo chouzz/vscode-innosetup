@@ -76,6 +76,13 @@
                 "title": "InnoSetup: Save & Compile Script"
             }
         ],
+        "keybindings": [
+            {
+                "key": "shift+alt+b",
+                "when": "editorFocus && editorLangId == innosetup",
+                "command": "extension.innosetup.compile"
+            }
+        ],
         "snippets": [
             {
                 "language": "innosetup",
