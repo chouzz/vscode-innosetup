@@ -24,7 +24,7 @@ Launch Quick Open, paste the following command, and press <kbd>Enter</kbd>
 Download the package extension from the the [release page](https://github.com/idleberg/vscode-innosetup/releases) and install it from the command-line:
 
 ```bash
-code --install-extension innosetup.vsix
+$ code --install-extension innosetup.vsix
 ```
 
 ### Clone Repository
