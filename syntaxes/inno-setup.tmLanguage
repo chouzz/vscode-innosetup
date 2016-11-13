@@ -29,7 +29,7 @@
                 </dict>
             </dict>
             <key>end</key>
-            <string>^(?=\[(Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\])$</string>
+            <string>^(\[(Code|Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\])$</string>
             <key>endCaptures</key>
             <dict>
                 <key>1</key>
@@ -44,7 +44,7 @@
             <array>
                 <dict>
                     <key>include</key>
-                    <string>source.pascal.inno</string>
+                    <string>source.pascal</string>
                 </dict>
             </array>
         </dict>
