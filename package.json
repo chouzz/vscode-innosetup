@@ -107,6 +107,9 @@
             }
         ]
     },
+    "extensionDependencies": [
+      "alefragnani.pascal"
+    ],
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "gulp lint"
