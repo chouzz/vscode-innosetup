@@ -1,124 +1,124 @@
 {
-  "name": "innosetup",
-  "displayName": "Inno Setup",
-  "description": "Language syntax, snippets and build system for Inno Setup",
-  "version": "0.3.4",
-  "publisher": "idleberg",
-  "license": "MIT",
-  "author": {
-    "name": "Jan T. Sott",
-    "url": "http://github.com/idleberg"
-  },
-  "keywords": [
-    "inno setup",
-    "inno pascal",
-    "innosetup",
-    "innopascal",
-    "installer"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/idleberg/vscode-innosetup.git"
-  },
-  "homepage": "https://github.com/idleberg/vscode-innosetup",
-  "bugs": {
-    "url": "https://github.com/idleberg/vscode-innosetup/issues"
-  },
-  "main": "./lib/main",
-  "engines": {
-    "vscode": "^1.0.0"
-  },
-  "categories": [
-    "Languages",
-    "Snippets",
-    "Other"
-  ],
-  "activationEvents": [
-    "onLanguage:innosetup"
-  ],
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Inno Setup",
-      "properties": {
-        "innosetup.pathToIscc": {
-          "type": "string",
-          "default": "ISCC.exe",
-          "description": "Specify the full path to `ISCC`"
-        }
-      }
+    "name": "innosetup",
+    "displayName": "Inno Setup",
+    "description": "Language syntax, snippets and build system for Inno Setup",
+    "version": "0.4.0",
+    "publisher": "idleberg",
+    "license": "MIT",
+    "author": {
+        "name": "Jan T. Sott",
+        "url": "http://github.com/idleberg"
     },
-    "languages": [
-      {
-        "id": "innosetup",
-        "aliases": [
-          "Inno Setup",
-          "InnoSetup",
-          "innosetup"
+    "keywords": [
+        "inno setup",
+        "inno pascal",
+        "innosetup",
+        "innopascal",
+        "installer"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/idleberg/vscode-innosetup.git"
+    },
+    "homepage": "https://github.com/idleberg/vscode-innosetup",
+    "bugs": {
+        "url": "https://github.com/idleberg/vscode-innosetup/issues"
+    },
+    "main": "./lib/main",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Languages",
+        "Snippets",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:innosetup"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Inno Setup",
+            "properties": {
+                "innosetup.pathToIscc": {
+                    "type": "string",
+                    "default": "ISCC.exe",
+                    "description": "Specify the full path to `ISCC`"
+                }
+            }
+        },
+        "languages": [
+            {
+                "id": "innosetup",
+                "aliases": [
+                    "Inno Setup",
+                    "InnoSetup",
+                    "innosetup"
+                ],
+                "extensions": [
+                    ".isl",
+                    ".iss"
+                ],
+                "configuration": "./inno-setup.configuration.json"
+            },
+            {
+                "id": "innopascal",
+                "aliases": [
+                    "Inno Pascal",
+                    "InnoPascal",
+                    "innopascal"
+                ]
+            }
         ],
-        "extensions": [
-          ".isl",
-          ".iss"
+        "grammars": [
+            {
+                "language": "innosetup",
+                "scopeName": "source.inno",
+                "path": "./syntaxes/inno-setup.tmLanguage"
+            },
+            {
+                "language": "innopascal",
+                "scopeName": "source.pascal.inno",
+                "path": "./syntaxes/inno-pascal.tmLanguage"
+            }
         ],
-        "configuration": "./inno-setup.configuration.json"
-      },
-      {
-        "id": "innopascal",
-        "aliases": [
-          "Inno Pascal",
-          "InnoPascal",
-          "innopascal"
+        "commands": [
+            {
+                "command": "extension.innosetup.compile",
+                "title": "InnoSetup: Save & Compile Script"
+            }
+        ],
+        "keybindings": [
+            {
+                "key": "shift+alt+b",
+                "when": "editorFocus && editorLangId == innosetup",
+                "command": "extension.innosetup.compile"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "innosetup",
+                "path": "./snippets/inno-setup.json"
+            },
+            {
+                "language": "innopascal",
+                "path": "./snippets/inno-pascal.json"
+            }
         ]
-      }
-    ],
-    "grammars": [
-      {
-        "language": "innosetup",
-        "scopeName": "source.inno",
-        "path": "./syntaxes/inno-setup.tmLanguage"
-      },
-      {
-        "language": "innopascal",
-        "scopeName": "source.pascal.inno",
-        "path": "./syntaxes/inno-pascal.tmLanguage"
-      }
-    ],
-    "commands": [
-      {
-        "command": "extension.innosetup.compile",
-        "title": "InnoSetup: Save & Compile Script"
-      }
-    ],
-    "keybindings": [
-      {
-        "key": "shift+alt+b",
-        "when": "editorFocus && editorLangId == innosetup",
-        "command": "extension.innosetup.compile"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "innosetup",
-        "path": "./snippets/inno-setup.json"
-      },
-      {
-        "language": "innopascal",
-        "path": "./snippets/inno-pascal.json"
-      }
-    ]
-  },
-  "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "gulp lint"
-  },
-  "devDependencies": {
-    "babel-eslint": "^7.1.0",
-    "eslint": "^3.10.0",
-    "gulp": "^3.9.1",
-    "gulp-debug": "^3.0.0",
-    "gulp-eslint": "^3.0.1",
-    "gulp-json-lint": "^0.1.0",
-    "gulp-xml-validator": "^0.1.2",
-    "vscode": "^1.0.3"
-  }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "gulp lint"
+    },
+    "devDependencies": {
+        "babel-eslint": "^7.1.0",
+        "eslint": "^3.10.0",
+        "gulp": "^3.9.1",
+        "gulp-debug": "^3.0.0",
+        "gulp-eslint": "^3.0.1",
+        "gulp-json-lint": "^0.1.0",
+        "gulp-xml-validator": "^0.1.2",
+        "vscode": "^1.0.3"
+    }
 }
