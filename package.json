@@ -2,7 +2,7 @@
     "name": "innosetup",
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "0.4.0",
+    "version": "0.4.1",
     "publisher": "idleberg",
     "license": "MIT",
     "author": {
@@ -108,7 +108,7 @@
         ]
     },
     "extensionDependencies": [
-      "alefragnani.pascal"
+        "alefragnani.pascal"
     ],
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",
