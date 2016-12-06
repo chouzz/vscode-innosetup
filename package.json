@@ -45,6 +45,16 @@
                     "type": "string",
                     "default": "ISCC.exe",
                     "description": "Specify the full path to `ISCC`"
+                },
+                "innosetup.showNotifications": {
+                    "type": "bool",
+                    "default": true,
+                    "description": "Show build notifications indicating success or failure"
+                },
+                "innosetup.alwaysShowOutput": {
+                    "type": "bool",
+                    "default": true,
+                    "description": "If `false` the output channel will only be shown on errors"
                 }
             }
         },
