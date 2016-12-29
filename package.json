@@ -60,7 +60,7 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Specify whether to open the newly created build task"
-                },
+                }
             }
         },
         "languages": [
@@ -101,11 +101,11 @@
         "commands": [
             {
                 "command": "extension.innosetup.compile",
-                "title": "InnoSetup: Save & Compile Script"
+                "title": "Inno Setup: Save & Compile Script"
             },
             {
                 "command": "extension.innosetup.create-build-task",
-                "title": "InnoSetup: Create Build Task"
+                "title": "Inno Setup: Create Build Task"
             }
         ],
         "keybindings": [
