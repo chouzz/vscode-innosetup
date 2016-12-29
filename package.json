@@ -55,7 +55,12 @@
                     "type": "boolean",
                     "default": true,
                     "description": "If `false` the output channel will only be shown on errors"
-                }
+                },
+                "innosetup.alwaysOpenBuildTask": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Specify whether to open the newly created build task"
+                },
             }
         },
         "languages": [
@@ -97,6 +102,10 @@
             {
                 "command": "extension.innosetup.compile",
                 "title": "InnoSetup: Save & Compile Script"
+            },
+            {
+                "command": "extension.innosetup.create-build-task",
+                "title": "InnoSetup: Create Build Task"
             }
         ],
         "keybindings": [
