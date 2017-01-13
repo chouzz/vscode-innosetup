@@ -15,7 +15,6 @@
 
     <key>patterns</key>
     <array>
-
         <!-- Inno Pascal section -->
         <dict>
             <key>begin</key>
@@ -29,7 +28,7 @@
                 </dict>
             </dict>
             <key>end</key>
-            <string>^(\[(Code|Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\])$</string>
+            <string>^(?=\[(Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\])$</string>
             <key>endCaptures</key>
             <dict>
                 <key>1</key>
@@ -44,7 +43,7 @@
             <array>
                 <dict>
                     <key>include</key>
-                    <string>source.pascal</string>
+                    <string>source.pascal.inno</string>
                 </dict>
             </array>
         </dict>
@@ -52,7 +51,7 @@
         <!-- Inno Setup -->
         <dict>
             <key>match</key>
-            <string>^\s*(AllowCancelDuringInstall|AllowNetworkDrive|AllowNoIcons|AllowRootDirectory|AllowUNCPath|AlwaysCreateUninstallIcon|AlwaysRestart|AlwaysShowComponentsList|AlwaysShowDirOnReadyPage|AlwaysShowGroupOnReadyPage|AlwaysUsePersonalGroup|AppComments|AppContact|AppCopyright|AppendDefaultDirName|AppendDefaultGroupName|AppId|AppModifyPath|AppMutex|AppName|AppPublisher|AppPublisherURL|AppReadmeFile|AppSupportPhone|AppSupportURL|AppUpdatesURL|AppVerName|AppVersion|ArchitecturesAllowed|ArchitecturesInstallIn64BitMode|BackColor|BackColor2|BackColorDirection|BackSolid|ChangesAssociations|ChangesEnvironment|CloseApplications|CloseApplicationsFilter|Compression|CompressionThreads|CopyrightFontName|CopyrightFontSize|CreateAppDir|CreateUninstallRegKey|DefaultDialogFontName|DefaultDirName|DefaultGroupName|DefaultUserInfoName|DefaultUserInfoOrg|DefaultUserInfoSerial|DialogFontName|DialogFontSize|DirExistsWarning|DisableDirPage|DisableFinishedPage|DisableProgramGroupPage|DisableReadyMemo|DisableReadyPage|DisableStartupPrompt|DisableWelcomePage|DiskClusterSize|DiskSliceSize|DiskSpanning|EnableDirDoesntExistWarning|Encryption|ExtraDiskSpaceRequired|FlatComponentsList|InfoAfterFile|InfoBeforeFile|InternalCompressLevel|LanguageCodePage|LanguageDetectionMethod|LanguageID|LanguageName|LicenseFile|LZMAAlgorithm|LZMABlockSize|LZMADictionarySize|LZMAMatchFinder|LZMANumBlockThreads|LZMANumFastBytes|LZMAUseSeparateProcess|MergeDuplicateFiles|MinVersion|OnlyBelowVersion|Output|OutputBaseFilename|OutputDir|OutputManifestFile|Password|PrivilegesRequired|ReserveBytes|RestartApplications|RestartIfNeededByRun|RightToLeft|SetupIconFile|SetupLogging|ShowComponentSizes|ShowLanguageDialog|ShowTasksTreeLines|ShowUndisplayableLanguages|SignedUninstaller|SignedUninstallerDir|SignTool|SignToolRetryCount|SlicesPerDisk|SolidCompression|SourceDir|TerminalServicesAware|TimeStampRounding|TimeStampsInUTC|TitleFontName|TitleFontSize|TouchDate|TouchTime|Uninstallable|UninstallDisplayIcon|UninstallDisplayName|UninstallDisplaySize|UninstallFilesDir|UninstallLogMode|UninstallRestartComputer|UpdateUninstallLogAppName|UsePreviousAppDir|UsePreviousGroup|UsePreviousLanguage|UsePreviousSetupType|UsePreviousTasks|UsePreviousUserInfo|UserInfoPage|UseSetupLdr|VersionInfoCompany|VersionInfoCopyright|VersionInfoDescription|VersionInfoProductName|VersionInfoProductTextVersion|VersionInfoProductVersion|VersionInfoTextVersion|VersionInfoVersion|WelcomeFontName|WelcomeFontSize|WindowResizable|WindowShowCaption|WindowStartMaximized|WindowVisible|WizardImageBackColor|WizardImageFile|WizardImageStretch|WizardSmallImageFile)\b</string>
+            <string>^\s*(AllowCancelDuringInstall|AllowNetworkDrive|AllowNoIcons|AllowRootDirectory|AllowUNCPath|AlwaysCreateUninstallIcon|AlwaysRestart|AlwaysShowComponentsList|AlwaysShowDirOnReadyPage|AlwaysShowGroupOnReadyPage|AlwaysUsePersonalGroup|AppComments|AppContact|AppCopyright|AppendDefaultDirName|AppendDefaultGroupName|AppId|AppModifyPath|AppMutex|AppName|AppPublisher|AppPublisherURL|AppReadmeFile|AppSupportPhone|AppSupportURL|AppUpdatesURL|AppVerName|AppVersion|ArchitecturesAllowed|ArchitecturesInstallIn64BitMode|BackColor|BackColor2|BackColorDirection|BackSolid|ChangesAssociations|ChangesEnvironment|CloseApplications|CloseApplicationsFilter|Compression|CompressionThreads|CopyrightFontName|CopyrightFontSize|CreateAppDir|CreateUninstallRegKey|DefaultDialogFontName|DefaultDirName|DefaultGroupName|DefaultUserInfoName|DefaultUserInfoOrg|DefaultUserInfoSerial|DialogFontName|DialogFontSize|DirExistsWarning|DisableDirPage|DisableFinishedPage|DisableProgramGroupPage|DisableReadyMemo|DisableReadyPage|DisableStartupPrompt|DisableWelcomePage|DiskClusterSize|DiskSliceSize|DiskSpanning|EnableDirDoesntExistWarning|Encryption|ExtraDiskSpaceRequired|FlatComponentsList|InfoAfterFile|InfoBeforeFile|InternalCompressLevel|LanguageCodePage|LanguageDetectionMethod|LanguageID|LanguageName|LicenseFile|LZMAAlgorithm|LZMABlockSize|LZMADictionarySize|LZMAMatchFinder|LZMANumBlockThreads|LZMANumFastBytes|LZMAUseSeparateProcess|MergeDuplicateFiles|MinVersion|OnlyBelowVersion|Output|OutputBaseFilename|OutputDir|OutputManifestFile|Password|PrivilegesRequired|ReserveBytes|RestartApplications|RestartIfNeededByRun|RightToLeft|SetupIconFile|SetupLogging|ShowComponentSizes|ShowLanguageDialog|ShowTasksTreeLines|ShowUndisplayableLanguages|SignedUninstaller|SignedUninstallerDir|SignTool|SignToolRetryCount|SlicesPerDisk|SolidCompression|SourceDir|TerminalServicesAware|TimeStampRounding|TimeStampsInUTC|TitleFontName|TitleFontSize|TouchDate|TouchTime|Uninstallable|UninstallDisplayIcon|UninstallDisplayName|UninstallDisplaySize|UninstallFilesDir|UninstallLogMode|UninstallRestartComputer|UpdateUninstallLogAppName|UsePreviousAppDir|UsePreviousGroup|UsePreviousLanguage|UsePreviousSetupType|UsePreviousTasks|UsePreviousUserInfo|UserInfoPage|UseSetupLdr|VersionInfoCompany|VersionInfoCopyright|VersionInfoDescription|VersionInfoProductName|VersionInfoProductTextVersion|VersionInfoProductVersion|VersionInfoTextVersion|VersionInfoVersion|WelcomeFontName|WelcomeFontSize|WindowResizable|WindowShowCaption|WindowStartMaximized|WindowVisible|WizardImageBackColor|WizardImageFile|WizardImageStretch|WizardSmallImageFile)(?=\s*=)</string>
             <key>name</key>
             <string>keyword.inno</string>
         </dict>
@@ -66,7 +65,7 @@
 
         <dict>
             <key>match</key>
-            <string>\b(AfterInstall|AfterMyProgInstall|BeforeInstall|BeforeMyProgInstall|Check|Components|Description|DestDir|DestName|Filename|Flags|Languages|Name|Parameters|Root|Source|StatusMsg|Subkey|Type|Types|ValueData|ValueName|ValueType|WorkingDir)\b</string>
+            <string>\b(AfterInstall|AfterMyProgInstall|BeforeInstall|BeforeMyProgInstall|Check|Components|Description|DestDir|DestName|Filename|Flags|Languages|Name|Parameters|Root|Source|StatusMsg|Subkey|Type|Types|ValueData|ValueName|ValueType|WorkingDir)(?=\s*:)</string>
             <key>name</key>
             <string>keyword.other.inno</string>
         </dict>
@@ -80,7 +79,7 @@
 
         <dict>
             <key>match</key>
-            <string>^\[(Code|Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\]$</string>
+            <string>^\[(Components|CustomMessages|Dirs|Files|Icons|INI|InstallDelete|LangOptions|Languages|Messages|Registry|Run|Setup|Tasks|Types|UninstallDelete|UninstallRun)\]$</string>
             <key>name</key>
             <string>entity.name.section.inno</string>
         </dict>
@@ -122,7 +121,7 @@
 
         <dict>
             <key>match</key>
-            <string>{(#)?[\w]+}</string>
+            <string>{(app|cf32|cf64|cf|cmd|commonappdata|commondocs|computername|dao|dotnet11|dotnet2032|dotnet2064|dotnet20|dotnet4032|dotnet4064|dotnet40|fonts|groupname|group|hwnd|language|localappdata|log|pf32|pf64|pf|sd|sendto|srcexe|src|sysuserinfoname|sysuserinfoorg|syswow64|sys|tmp|uninstallexe|usercf|userinfoname|userinfoorg|userinfoserial|username|userpf|win|wizardhwnd)}</string>
             <key>name</key>
             <string>constant.other.inno</string>
         </dict>
@@ -134,10 +133,10 @@
             <string>variable.other.inno</string>
         </dict>
 
-        <!-- Strings -->
+        <!-- Quoted Strings -->
         <dict>
             <key>begin</key>
-            <string>"</string>
+            <string>:\s*"</string>
             <key>beginCaptures</key>
             <dict>
                 <key>0</key>
@@ -147,7 +146,7 @@
                 </dict>
             </dict>
             <key>end</key>
-            <string>"</string>
+            <string>"{1}\s*(;|$\n?)</string>
             <key>endCaptures</key>
             <dict>
                 <key>0</key>
@@ -162,7 +161,7 @@
             <array>
                 <dict>
                     <key>match</key>
-                    <string>{(#)?[\w]+}</string>
+                    <string>{(app|cf32|cf64|cf|cmd|commonappdata|commondocs|computername|dao|dotnet11|dotnet2032|dotnet2064|dotnet20|dotnet4032|dotnet4064|dotnet40|fonts|groupname|group|hwnd|language|localappdata|log|pf32|pf64|pf|sd|sendto|srcexe|src|sysuserinfoname|sysuserinfoorg|syswow64|sys|tmp|uninstallexe|usercf|userinfoname|userinfoorg|userinfoserial|username|userpf|win|wizardhwnd)}</string>
                     <key>name</key>
                     <string>constant.other.inno</string>
                 </dict>
@@ -172,85 +171,17 @@
                     <key>name</key>
                     <string>variable.other.inno</string>
                 </dict>
-            </array>
-        </dict>
-
-        <dict>
-            <key>begin</key>
-            <string>'</string>
-            <key>beginCaptures</key>
-            <dict>
-                <key>0</key>
-                <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.string.begin.inno</string>
-                </dict>
-            </dict>
-            <key>end</key>
-            <string>'</string>
-            <key>endCaptures</key>
-            <dict>
-                <key>0</key>
-                <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.string.end.inno</string>
-                </dict>
-            </dict>
-            <key>name</key>
-            <string>string.quoted.back.inno</string>
-            <key>patterns</key>
-            <array>
                 <dict>
                     <key>match</key>
-                    <string>{(#)?[\w]+}</string>
+                    <string>"{2}</string>
                     <key>name</key>
-                    <string>constant.other.inno</string>
+                    <string>constant.character.escape.inno</string>
                 </dict>
                 <dict>
                     <key>match</key>
-                    <string>%\w+</string>
+                    <string>"{1}</string>
                     <key>name</key>
-                    <string>variable.other.inno</string>
-                </dict>
-            </array>
-        </dict>
-
-        <dict>
-            <key>begin</key>
-            <string>`</string>
-            <key>beginCaptures</key>
-            <dict>
-                <key>0</key>
-                <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.string.begin.inno</string>
-                </dict>
-            </dict>
-            <key>end</key>
-            <string>`</string>
-            <key>endCaptures</key>
-            <dict>
-                <key>0</key>
-                <dict>
-                    <key>name</key>
-                    <string>punctuation.definition.string.end.inno</string>
-                </dict>
-            </dict>
-            <key>name</key>
-            <string>string.quoted.back.inno</string>
-            <key>patterns</key>
-            <array>
-                <dict>
-                    <key>match</key>
-                    <string>{(#)?[\w]+}</string>
-                    <key>name</key>
-                    <string>constant.other.inno</string>
-                </dict>
-                <dict>
-                    <key>match</key>
-                    <string>%\w+</string>
-                    <key>name</key>
-                    <string>variable.other.inno</string>
+                    <string>invalid.illegal.inno</string>
                 </dict>
             </array>
         </dict>
