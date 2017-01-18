@@ -1,146 +1,146 @@
 {
-    "name": "innosetup",
-    "displayName": "Inno Setup",
-    "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "0.7.0",
-    "publisher": "idleberg",
-    "license": "MIT",
-    "author": {
-        "name": "Jan T. Sott",
-        "url": "http://github.com/idleberg"
-    },
-    "keywords": [
-        "inno setup",
-        "inno pascal",
-        "innosetup",
-        "innopascal",
-        "installer"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/idleberg/vscode-innosetup.git"
-    },
-    "homepage": "https://github.com/idleberg/vscode-innosetup",
-    "bugs": {
-        "url": "https://github.com/idleberg/vscode-innosetup/issues"
-    },
-    "main": "./lib/main",
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "categories": [
-        "Languages",
-        "Snippets",
-        "Other"
-    ],
-    "activationEvents": [
-        "onLanguage:innosetup"
-    ],
-    "contributes": {
-        "configuration": {
-            "type": "object",
-            "title": "Inno Setup",
-            "properties": {
-                "innosetup.pathToIscc": {
-                    "type": "string",
-                    "default": "ISCC.exe",
-                    "description": "Specify the full path to `ISCC`"
-                },
-                "innosetup.showNotifications": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Show build notifications indicating success or failure"
-                },
-                "innosetup.alwaysShowOutput": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "If `false` the output channel will only be shown on errors"
-                },
-                "innosetup.alwaysOpenBuildTask": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Specify whether to open the newly created build task"
-                }
-            }
+  "name": "innosetup",
+  "displayName": "Inno Setup",
+  "description": "Language syntax, snippets and build system for Inno Setup",
+  "version": "0.7.0",
+  "publisher": "idleberg",
+  "license": "MIT",
+  "author": {
+    "name": "Jan T. Sott",
+    "url": "http://github.com/idleberg"
+  },
+  "keywords": [
+    "inno setup",
+    "inno pascal",
+    "innosetup",
+    "innopascal",
+    "installer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idleberg/vscode-innosetup.git"
+  },
+  "homepage": "https://github.com/idleberg/vscode-innosetup",
+  "bugs": {
+    "url": "https://github.com/idleberg/vscode-innosetup/issues"
+  },
+  "main": "./lib/main",
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Languages",
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:innosetup"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Inno Setup",
+      "properties": {
+        "innosetup.pathToIscc": {
+          "type": "string",
+          "default": "ISCC.exe",
+          "description": "Specify the full path to `ISCC`"
         },
-        "languages": [
-            {
-                "id": "innosetup",
-                "aliases": [
-                    "Inno Setup",
-                    "InnoSetup",
-                    "innosetup"
-                ],
-                "extensions": [
-                    ".isl",
-                    ".iss"
-                ],
-                "configuration": "./inno-setup.configuration.json"
-            },
-            {
-                "id": "innopascal",
-                "aliases": [
-                    "Inno Pascal",
-                    "InnoPascal",
-                    "innopascal"
-                ]
-            }
+        "innosetup.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show build notifications indicating success or failure"
+        },
+        "innosetup.alwaysShowOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "If `false` the output channel will only be shown on errors"
+        },
+        "innosetup.alwaysOpenBuildTask": {
+          "type": "boolean",
+          "default": true,
+          "description": "Specify whether to open the newly created build task"
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "innosetup",
+        "aliases": [
+          "Inno Setup",
+          "InnoSetup",
+          "innosetup"
         ],
-        "grammars": [
-            {
-                "language": "innosetup",
-                "scopeName": "source.inno",
-                "path": "./syntaxes/inno-setup.tmLanguage"
-            },
-            {
-                "language": "innopascal",
-                "scopeName": "source.pascal.inno",
-                "path": "./syntaxes/inno-pascal.tmLanguage"
-            }
+        "extensions": [
+          ".isl",
+          ".iss"
         ],
-        "commands": [
-            {
-                "command": "extension.innosetup.compile",
-                "title": "Inno Setup: Save & Compile Script"
-            },
-            {
-                "command": "extension.innosetup.create-build-task",
-                "title": "Inno Setup: Create Build Task"
-            }
-        ],
-        "keybindings": [
-            {
-                "key": "shift+alt+b",
-                "when": "editorFocus && editorLangId == innosetup",
-                "command": "extension.innosetup.compile"
-            }
-        ],
-        "snippets": [
-            {
-                "language": "innosetup",
-                "path": "./snippets/inno-setup.json"
-            },
-            {
-                "language": "innopascal",
-                "path": "./snippets/inno-pascal.json"
-            }
+        "configuration": "./inno-setup.configuration.json"
+      },
+      {
+        "id": "innopascal",
+        "aliases": [
+          "Inno Pascal",
+          "InnoPascal",
+          "innopascal"
         ]
-    },
-    "extensionDependencies": [
-        "alefragnani.pascal"
+      }
     ],
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "gulp lint"
-    },
-    "devDependencies": {
-        "babel-eslint": "^7.1.0",
-        "eslint": "^3.10.0",
-        "gulp": "github:gulpjs/gulp#4.0",
-        "gulp-debug": "^3.0.0",
-        "gulp-eslint": "^3.0.1",
-        "gulp-jsonlint": "^1.1.2",
-        "gulp-xml-validator": "^0.1.2",
-        "vscode": "^1.0.3"
-    }
+    "grammars": [
+      {
+        "language": "innosetup",
+        "scopeName": "source.inno",
+        "path": "./syntaxes/inno-setup.tmLanguage"
+      },
+      {
+        "language": "innopascal",
+        "scopeName": "source.pascal.inno",
+        "path": "./syntaxes/inno-pascal.tmLanguage"
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.innosetup.compile",
+        "title": "Inno Setup: Save & Compile Script"
+      },
+      {
+        "command": "extension.innosetup.create-build-task",
+        "title": "Inno Setup: Create Build Task"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "shift+alt+b",
+        "when": "editorFocus && editorLangId == innosetup",
+        "command": "extension.innosetup.compile"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "innosetup",
+        "path": "./snippets/inno-setup.json"
+      },
+      {
+        "language": "innopascal",
+        "path": "./snippets/inno-pascal.json"
+      }
+    ]
+  },
+  "extensionDependencies": [
+    "alefragnani.pascal"
+  ],
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "gulp lint"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.13.1",
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-debug": "^3.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-jsonlint": "^1.2.0",
+    "gulp-xml-validator": "^0.1.2",
+    "vscode": "^1.0.3"
+  }
 }
