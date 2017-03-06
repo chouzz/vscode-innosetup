@@ -136,7 +136,7 @@
         <!-- Quoted Strings -->
         <dict>
             <key>begin</key>
-            <string>:\s*"</string>
+            <string>"\s*"</string>
             <key>beginCaptures</key>
             <dict>
                 <key>0</key>
