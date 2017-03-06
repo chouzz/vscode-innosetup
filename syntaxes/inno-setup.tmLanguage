@@ -171,11 +171,44 @@
                     <key>name</key>
                     <string>variable.other.inno</string>
                 </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>begin</key>
+            <string>'</string>
+            <key>beginCaptures</key>
+            <dict>
+                <key>0</key>
+                <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.string.begin.inno</string>
+                </dict>
+            </dict>
+            <key>end</key>
+            <string>'</string>
+            <key>endCaptures</key>
+            <dict>
+                <key>0</key>
+                <dict>
+                    <key>name</key>
+                    <string>punctuation.definition.string.end.inno</string>
+                </dict>
+            </dict>
+            <key>name</key>
+            <string>string.quoted.back.inno</string>
+            <key>patterns</key>
+            <array>
                 <dict>
                     <key>match</key>
-                    <string>\\.</string>
+                    <string>{(app|cf32|cf64|cf|cmd|commonappdata|commondocs|computername|dao|dotnet11|dotnet2032|dotnet2064|dotnet20|dotnet4032|dotnet4064|dotnet40|fonts|groupname|group|hwnd|language|localappdata|log|pf32|pf64|pf|sd|sendto|srcexe|src|sysuserinfoname|sysuserinfoorg|syswow64|sys|tmp|uninstallexe|usercf|userinfoname|userinfoorg|userinfoserial|username|userpf|win|wizardhwnd)}</string>
                     <key>name</key>
-                    <string>constant.character.escape.inno</string>
+                    <string>constant.other.inno</string>
+                </dict>
+                <dict>
+                    <key>match</key>
+                    <string>%\w+</string>
+                    <key>name</key>
+                    <string>variable.other.inno</string>
                 </dict>
             </array>
         </dict>
