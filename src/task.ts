@@ -13,10 +13,9 @@ const createTask = () => {
   }
 
   const config = workspace.getConfiguration('innosetup');
-  const command: string = config.pathToIscc;
 
   const taskFile: Object = {
-      'command': command,
+      'command': config.pathToIscc,
       'version': version,
       'args': [],
       'isShellCommand': false,
