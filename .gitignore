@@ -1,6 +1,8 @@
 *.vsix
 bower_components/
+lib/
 node_modules/
 npm-debug.log*
+package-lock.json
 todo.md
 vendor/
