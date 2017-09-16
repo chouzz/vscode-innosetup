@@ -145,6 +145,6 @@
         "compile": "tsc -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "test": "gulp lint",
-        "vscode:prepublish": "tsc -p ./ && gulp build"
+        "vscode:prepublish": "tsc -p ./"
     }
 }
