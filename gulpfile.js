@@ -8,36 +8,40 @@
  // Dependencies
 const gulp = require('gulp');
 const debug = require('gulp-debug');
-const eslint = require('gulp-eslint');
+const tslint = require('gulp-tslint');
 const jsonlint = require('gulp-jsonlint');
+const rename = require('gulp-rename');
 const xmlVal = require('gulp-xml-validator');
 
 // Supported files
-const jsFiles = [
-  'lib/*.js'
+const tsFiles = [
+  'src/*.ts',
 ];
 
 const jsonFiles = [
-  '*.json',
-  'snippets/*.json'
+  'package.json',
+  'snippets/*.json',
+  'tsconfig.json',
+  'tslint.json'
 ];
 
 const xmlFiles = [
   'syntaxes/*.tmLanguage'
 ];
 
-// Lint JavaScript
-gulp.task('lint:js', gulp.series(function(done) {
-  gulp.src(jsFiles)
-    .pipe(debug({title: 'eslint'}))
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+// Lint TypeScript
+gulp.task('lint:ts', gulp.series( (done) => {
+  gulp.src(tsFiles)
+    .pipe(debug({title: 'tslint'}))
+    .pipe(tslint({
+        formatter: "prose"
+    }))
+    .pipe(tslint.report())
   done();
 }));
 
 // Lint JSON
-gulp.task('lint:json', gulp.series(function(done) { 
+gulp.task('lint:json', gulp.series( (done) => {
   gulp.src(jsonFiles)
     .pipe(debug({title: 'json-lint'}))
     .pipe(jsonlint())
@@ -47,7 +51,7 @@ gulp.task('lint:json', gulp.series(function(done) {
 }));
 
 // Validate XML
-gulp.task('lint:xml', gulp.series(function(done) { 
+gulp.task('lint:xml', gulp.series( (done) => {
   gulp.src(xmlFiles)
     .pipe(debug({title: 'xml-validator'}))
     .pipe(xmlVal());
@@ -55,6 +59,6 @@ gulp.task('lint:xml', gulp.series(function(done) {
 }));
 
 // Available tasks
-gulp.task('lint', gulp.parallel('lint:js', 'lint:json', 'lint:xml', function(done) {
+gulp.task('lint', gulp.parallel('lint:ts', 'lint:json', 'lint:xml', (done) => {
   done();
 }));
