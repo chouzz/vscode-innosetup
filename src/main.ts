@@ -4,7 +4,7 @@ import { commands } from 'vscode';
 
 // Load package components
 import { build } from './build';
-import { task} from './task';
+import { createTask} from './task';
 
 const activate = (context) => {
   context.subscriptions.push(
@@ -14,7 +14,7 @@ const activate = (context) => {
   );
   context.subscriptions.push(
     commands.registerTextEditorCommand('extension.innosetup.create-build-task', () => {
-      return task();
+      return createTask();
     })
   );
 };

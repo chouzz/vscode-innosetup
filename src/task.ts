@@ -7,7 +7,7 @@ import { join } from 'path';
 
 const { version } = require('../package.json');
 
-const task = () => {
+const createTask = () => {
   if (typeof workspace.rootPath === 'undefined' || workspace.rootPath === null) {
     return window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
   }
@@ -52,4 +52,4 @@ const task = () => {
   });
 };
 
-export { task };
+export { createTask };
