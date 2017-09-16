@@ -1,12 +1,16 @@
+# v0.8.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.8.0)
+
+- move to TypeScript
+
 # v0.7.3 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.7.3)
 
-* add support for single-quoted strings
-* fix pattern for double-quoted strings
+- add support for single-quoted strings
+- fix pattern for double-quoted strings
 
 # v0.7.2 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.7.2)
 
-* add support for escaped characters
-* fix string pattern
+- add support for escaped characters
+- fix string pattern
 
 # v0.7.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.7.1)
 
@@ -92,3 +96,4 @@
 # v0.1.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.1.0)
 
 - first release
+
