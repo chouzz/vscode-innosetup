@@ -1,19 +1,20 @@
 'use strict';
 
+import { workspace, window } from 'vscode';
+
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { window } from 'vscode';
 
-const nsisChannel = window.createOutputChannel('Inno Setup');
+const outputChannel = window.createOutputChannel('Inno Setup');
 
 const build = () => {
-  const config = vscode.workspace.getConfiguration('innosetup');
+  const config = workspace.getConfiguration('innosetup');
 
   if (config.pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
     return window.showWarningMessage('This command is only available on Windows. See README for workarounds on non-Windows.');
   }
 
-  const doc = window.textEditor.document;
+  const doc = window.activeTextEditor.document;
 
   doc.save().then( () => {
     outputChannel.clear();

@@ -40,7 +40,7 @@ const createTask = () => {
     // ignore errors for now
     writeFile(buildFile, jsonString, (error) => {
       if (error) {
-        return window.showErrorMessage(error);
+        return window.showErrorMessage(error.toString());
       }
       if (config.alwaysOpenBuildTask === false) return;
 
