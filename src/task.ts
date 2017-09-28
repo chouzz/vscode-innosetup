@@ -17,18 +17,15 @@ const createTask = () => {
   const taskFile: Object = {
       'command': config.pathToIscc,
       'version': version,
-      'args': [],
+      'args': ['${file}'],
       'isShellCommand': false,
       'showOutput': 'always',
       'suppressTaskName': true,
       'echoCommand': false,
-      'tasks': [
-        {
-          'taskName': 'Build',
-          'args': [ '${file}' ],
-          'isBuildCommand': true
+      'group': {
+          'kind': 'build',
+          'isDefault': true
         }
-      ]
   };
 
   const jsonString: string = JSON.stringify(taskFile, null, 2);
