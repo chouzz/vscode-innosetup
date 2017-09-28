@@ -1,3 +1,8 @@
+# v0.8.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.8.1)
+
+- make build task the default
+- test against Node LTS and latest version
+
 # v0.8.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.8.0)
 
 - move to TypeScript
