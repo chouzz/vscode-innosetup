@@ -25,7 +25,7 @@ const createTask = () => {
       'group': {
           'kind': 'build',
           'isDefault': true
-        }
+      }
   };
 
   const jsonString: string = JSON.stringify(taskFile, null, 2);
