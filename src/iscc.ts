@@ -6,7 +6,7 @@ import { platform } from 'os';
 import { spawn } from 'child_process';
 import { clearOutput, detectOutfile, getConfig, runInstaller } from './util';
 
-const innoChannel = window.createOutputChannel('Inno Setup');
+const outputChannel = window.createOutputChannel('Inno Setup');
 
 const build = () => {
   const config: any = getConfig();
@@ -18,7 +18,7 @@ const build = () => {
   const doc = window.activeTextEditor.document;
 
   doc.save().then( () => {
-    clearOutput(innoChannel);
+    clearOutput(outputChannel);
 
     // Let's build
     const iscc = spawn(config.pathToIscc, [ doc.fileName ]);
@@ -26,7 +26,7 @@ const build = () => {
     let outFile: string = '';
 
     iscc.stdout.on('data', (line: Array<any>) => {
-      innoChannel.appendLine(line.toString());
+      outputChannel.appendLine(line.toString());
 
       if (platform() === 'win32' && outFile === '') {
         outFile = detectOutfile(line);
@@ -34,7 +34,7 @@ const build = () => {
     });
 
     iscc.stderr.on('data', (line:  Array<any>) => {
-      innoChannel.appendLine(line.toString());
+      outputChannel.appendLine(line.toString());
     });
 
     iscc.on('close', (code) => {
@@ -49,7 +49,7 @@ const build = () => {
           });
         }
       } else {
-        innoChannel.show(true);
+        outputChannel.show(true);
         if (config.showNotifications) window.showErrorMessage('Compilation failed, see output for details');
       }
     });
