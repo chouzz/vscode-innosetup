@@ -4,7 +4,7 @@ import { workspace, window } from 'vscode';
 
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { detectOutfile, getConfig, runInstaller } from './util';
+import { clearOutput, detectOutfile, getConfig, runInstaller } from './util';
 
 const outputChannel = window.createOutputChannel('Inno Setup');
 
@@ -18,10 +18,7 @@ const build = () => {
   const doc = window.activeTextEditor.document;
 
   doc.save().then( () => {
-    outputChannel.clear();
-    if (config.alwaysShowOutput === true) {
-      outputChannel.show();
-    }
+    clearOutput(nsisChannel);
 
     // Let's build
     const iscc = spawn(config.pathToIscc, [ doc.fileName ]);

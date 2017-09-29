@@ -3,7 +3,7 @@
 import { commands } from 'vscode';
 
 // Load package components
-import { build } from './build';
+import { build } from './iscc';
 import { createTask} from './task';
 
 const activate = (context) => {
