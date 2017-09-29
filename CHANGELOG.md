@@ -1,3 +1,9 @@
+# v1.0.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.0.0)
+
+- add menu icons
+- add Run button to success message
+- update devDependencies
+
 # v0.8.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/0.8.1)
 
 - make build task the default
