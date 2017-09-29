@@ -101,11 +101,19 @@
         "commands": [
             {
                 "command": "extension.innosetup.compile",
-                "title": "Inno Setup: Save & Compile Script"
+                "title": "Inno Setup: Save & Compile Script",
+                "icon": {
+                    "dark": "./images/icon--build-dark.svg",
+                    "light": "./images/icon--build-light.svg"
+                }
             },
             {
                 "command": "extension.innosetup.create-build-task",
-                "title": "Inno Setup: Create Build Task"
+                "title": "Inno Setup: Create Build Task",
+                "icon": {
+                    "dark": "./images/icon--task-dark.svg",
+                    "light": "./images/icon--task-light.svg"
+                }
             }
         ],
         "keybindings": [
@@ -115,6 +123,20 @@
                 "command": "extension.innosetup.compile"
             }
         ],
+        "menus": {
+            "editor/title": [
+                {
+                    "when": "resourceLangId == innosetup",
+                    "command": "extension.innosetup.compile",
+                    "group": "navigation@1"
+                },
+                {
+                    "when": "resourceLangId == innosetup",
+                    "command": "extension.innosetup.create-build-task",
+                    "group": "navigation@3"
+                }
+            ]
+        },
         "snippets": [
             {
                 "language": "innosetup",
