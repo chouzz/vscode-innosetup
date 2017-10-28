@@ -10,7 +10,7 @@ Language syntax, snippets and build system for Inno Setup
 
 ![Screenshot](https://raw.githubusercontent.com/idleberg/vscode-innosetup/master/images/screenshot.png)
 
-*Screenshot of Inno Setup in Visual Studio Code with [Hopscotch](https://marketplace.visualstudio.com/items?itemName=gerane.Theme-Hopscotch) theme*
+*Screenshot of Inno Setup in Visual Studio Code with [Hopscotch](https://marketplace.visualstudio.com/items?itemName=idleberg.hopscotch) theme*
 
 ## Installation
 
