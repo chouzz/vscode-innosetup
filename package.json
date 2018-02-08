@@ -2,7 +2,7 @@
     "name": "innosetup",
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "idleberg",
     "license": "MIT",
     "author": {
@@ -157,7 +157,6 @@
         "typescript": "^2.7.1",
         "vscode": "^1.1.10",
         "vscode-linter": "^0.1.0"
-
     },
     "scripts": {
         "compile": "tsc -p ./",
