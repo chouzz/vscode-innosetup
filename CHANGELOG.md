@@ -1,3 +1,8 @@
+# v1.0.2 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.0.2)
+
+- replace linter
+- update dependencies
+
 # v1.0.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.0.1)
 
 - support case-insensitive syntax
