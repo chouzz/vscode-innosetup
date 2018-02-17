@@ -18,9 +18,9 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/idleberg/vscode-innosetup.git"
+        "url": "https://github.com/idleberg/vscode-innosetup"
     },
-    "homepage": "https://github.com/idleberg/vscode-innosetup",
+    "homepage": "https://github.com/idleberg/vscode-innosetup#readme",
     "bugs": {
         "url": "https://github.com/idleberg/vscode-innosetup/issues"
     },
