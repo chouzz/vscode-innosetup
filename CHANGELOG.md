@@ -1,3 +1,7 @@
+# v1.0.3 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.0.3)
+
+- update package manifest
+
 # v1.0.2 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.0.2)
 
 - replace linter
