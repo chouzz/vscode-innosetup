@@ -1,4 +1,4 @@
-# v1.1.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.1.0)
+# v1.2.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.2.0)
 
 - add section directives
 - update dependencies
