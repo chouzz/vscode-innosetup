@@ -12,6 +12,7 @@
     "scripts": {
         "compile": "tsc -p ./",
         "postinstall": "node ./node_modules/vscode/bin/install",
+        "precommit": "vscode-linter",
         "test": "vscode-linter",
         "vscode:prepublish": "tsc -p ./"
     },
