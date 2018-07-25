@@ -1,13 +1,13 @@
 'use strict';
 
-import { window, workspace } from 'vscode';
+import { window, workspace, WorkspaceConfiguration } from 'vscode';
 
 import { existsSync } from 'fs';
 import { platform } from 'os';
 import { spawn } from 'child_process';
 
 const clearOutput = (channel): void => {
-  let config: any = getConfig();
+  let config: WorkspaceConfiguration = getConfig();
 
   channel.clear();
   if (config.alwaysShowOutput === true) {

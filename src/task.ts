@@ -1,6 +1,6 @@
 'use babel';
 
-import { workspace, window } from 'vscode';
+import { window, workspace, WorkspaceConfiguration } from 'vscode';
 
 import { mkdir, writeFile } from 'fs';
 import { join } from 'path';
@@ -12,7 +12,7 @@ const createTask = () => {
     return window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
   }
 
-  const config = workspace.getConfiguration('innosetup');
+  const config: WorkspaceConfiguration = workspace.getConfiguration('innosetup');
 
   const taskFile: Object = {
       'command': config.pathToIscc,

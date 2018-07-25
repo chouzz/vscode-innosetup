@@ -1,6 +1,6 @@
 'use strict';
 
-import { workspace, window } from 'vscode';
+import { window, workspace, WorkspaceConfiguration } from 'vscode';
 
 import { platform } from 'os';
 import { spawn } from 'child_process';
@@ -9,7 +9,7 @@ import { clearOutput, detectOutfile, getConfig, runInstaller } from './util';
 const outputChannel = window.createOutputChannel('Inno Setup');
 
 const build = () => {
-  const config: any = getConfig();
+  const config: WorkspaceConfiguration = getConfig();
 
   if (config.pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
     return window.showWarningMessage('This command is only available on Windows. See README for workarounds on non-Windows.');
