@@ -15,7 +15,7 @@
         "postinstall": "node ./node_modules/vscode/bin/install",
         "precommit": "vscode-linter",
         "test": "vscode-linter",
-        "vscode:prepublish": "node run build"
+        "vscode:prepublish": "npm run build"
     },
     "keywords": [
         "inno setup",
@@ -160,11 +160,11 @@
         "alefragnani.pascal"
     ],
     "devDependencies": {
-        "@types/node": "^10.5.2",
-        "husky": "^0.14.3",
-        "tslint": "^5.10.0",
-        "typescript": "^2.9.2",
-        "vscode": "^1.1.18",
-        "vscode-linter": "^0.2.1"
+        "@types/node": "^13.9.3",
+        "husky": "^4.2.3",
+        "tslint": "^6.1.0",
+        "typescript": "^3.8.3",
+        "vscode": "^1.1.36",
+        "vscode-linter": "^0.3.1"
     }
 }
