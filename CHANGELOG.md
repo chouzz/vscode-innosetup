@@ -1,3 +1,10 @@
+# v1.3.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.3.0)
+
+- bundle with Webpack
+- remove extension dependency
+- move config
+- update dependencies
+
 # v1.2.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.2.0)
 
 - add section directives

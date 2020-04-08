@@ -155,9 +155,7 @@
             }
         ]
     },
-    "extensionDependencies": [
-        "alefragnani.pascal"
-    ],
+    "extensionDependencies": [],
     "devDependencies": {
         "@types/node": "^13.9.3",
         "husky": "^4.2.3",
