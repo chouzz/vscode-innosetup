@@ -10,10 +10,9 @@
         "url": "http://github.com/idleberg"
     },
     "scripts": {
-        "build": "tsc --pretty --project ./",
-        "dev": "tsc --watch --pretty --project ./",
+        "build": "webpack --mode production",
+        "dev": "webpack --mode none --watch",
         "postinstall": "node ./node_modules/vscode/bin/install",
-        "precommit": "vscode-linter",
         "test": "vscode-linter",
         "vscode:prepublish": "npm run build"
     },
@@ -32,7 +31,7 @@
     "bugs": {
         "url": "https://github.com/idleberg/vscode-innosetup/issues"
     },
-    "main": "./lib/main",
+    "main": "./lib/extension",
     "engines": {
         "vscode": "^1.0.0"
     },
@@ -83,7 +82,7 @@
                     ".isl",
                     ".iss"
                 ],
-                "configuration": "./inno-setup.configuration.json"
+                "configuration": "./config/inno-setup.json"
             },
             {
                 "id": "innopascal",
@@ -162,9 +161,16 @@
     "devDependencies": {
         "@types/node": "^13.9.3",
         "husky": "^4.2.3",
+        "ts-loader": "^6.2.2",
         "tslint": "^6.1.0",
-        "typescript": "^3.8.3",
         "vscode": "^1.1.36",
-        "vscode-linter": "^0.3.1"
+        "vscode-linter": "^0.3.1",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run test"
+        }
     }
 }
