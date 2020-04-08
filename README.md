@@ -18,14 +18,26 @@ Language syntax, snippets and build system for Inno Setup
 
 Launch Quick Open, paste the following command, and press <kbd>Enter</kbd>
 
-`ext install innosetup`
+`ext install idleberg.innosetup`
+
+### CLI
+
+With [shell commands](https://code.visualstudio.com/docs/editor/command-line) installed, you can use the following command to install the extension:
+
+`$ code --install-extension idleberg.innosetup`
 
 ### Packaged Extension
 
-Download the package extension from the the [release page](https://github.com/idleberg/vscode-innosetup/releases) and install it from the command-line:
+Download the packaged extension from the the [release page](https://github.com/idleberg/vscode-innosetup/releases) and install it from the command-line:
 
 ```bash
-$ code --install-extension innosetup-*.vsix
+$ code --install-extension path/to/innosetup-*.vsix
+```
+
+Alternatively, you can download the packaged extension from the [Open VSX Registry](https://open-vsx.org/) or using the [`ovsx`](https://www.npmjs.com/package/ovsx) command-line tool:
+
+```bash
+$ ovsx get idleberg.innosetup
 ```
 
 ### Clone Repository
