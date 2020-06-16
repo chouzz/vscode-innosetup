@@ -1,3 +1,8 @@
+# v1.4.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.4.0)
+
+- add Inno Setup 6 syntax
+- add missing keywords and constants 
+
 # v1.3.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.3.0)
 
 - bundle with Webpack
