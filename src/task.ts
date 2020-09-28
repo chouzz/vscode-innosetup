@@ -5,8 +5,6 @@ import { window, workspace, WorkspaceConfiguration } from 'vscode';
 import { mkdir, writeFile } from 'fs';
 import { join } from 'path';
 
-const { version } = require('../package.json');
-
 const createTask = () => {
   if (typeof workspace.rootPath === 'undefined' || workspace.rootPath === null) {
     return window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
@@ -15,17 +13,23 @@ const createTask = () => {
   const config: WorkspaceConfiguration = workspace.getConfiguration('innosetup');
 
   const taskFile: Object = {
-      'command': config.pathToIscc,
-      'version': version,
-      'args': ['${file}'],
-      'isShellCommand': false,
-      'showOutput': 'always',
-      'suppressTaskName': true,
-      'echoCommand': false,
-      'group': {
-          'kind': 'build',
-          'isDefault': true
-      }
+      'version': '2.0.0',
+      'tasks': [
+          {
+              'label': 'Compile current .iss file',
+              'type': 'process',
+              'command': config.pathToIscc,
+              'args': ['${file}'],
+              'presentation': {
+                  'reveal': 'always',
+                  'echo': false
+              },
+              'group': {
+                  'kind': 'build',
+                  'isDefault': true
+              }
+          }
+      ]
   };
 
   const jsonString: string = JSON.stringify(taskFile, null, 2);
