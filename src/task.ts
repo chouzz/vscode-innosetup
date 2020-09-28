@@ -16,7 +16,7 @@ const createTask = () => {
       'version': '2.0.0',
       'tasks': [
           {
-              'label': 'Compile current .iss file',
+              'label': 'Inno Setup: Compile Script',
               'type': 'process',
               'command': config.pathToIscc,
               'args': ['${file}'],
