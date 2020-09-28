@@ -1,3 +1,8 @@
+# v1.5.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.5.0)
+
+- add support for Tasks 2.0
+- update dependencies
+
 # v1.4.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.4.0)
 
 - add Inno Setup 6 syntax
