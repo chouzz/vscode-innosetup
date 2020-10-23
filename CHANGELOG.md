@@ -2,6 +2,7 @@
 
 - add support for variable substition when reading config
 - refactor functions
+- add `.editorconfig`
 - update dependencies
 
 # v1.5.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.5.0)
