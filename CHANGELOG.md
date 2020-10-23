@@ -1,3 +1,9 @@
+# v1.6.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.6.0)
+
+- add support for variable substition when reading config
+- refactor functions
+- update dependencies
+
 # v1.5.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.5.0)
 
 - add support for Tasks 2.0

@@ -8,13 +8,13 @@ import { createTask} from './task';
 
 const activate = (context) => {
   context.subscriptions.push(
-    commands.registerTextEditorCommand('extension.innosetup.compile', () => {
-      return build();
+    commands.registerTextEditorCommand('extension.innosetup.compile', async () => {
+      return await build();
     })
   );
   context.subscriptions.push(
-    commands.registerTextEditorCommand('extension.innosetup.create-build-task', () => {
-      return createTask();
+    commands.registerTextEditorCommand('extension.innosetup.create-build-task', async () => {
+      return await createTask();
     })
   );
 };

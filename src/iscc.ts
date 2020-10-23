@@ -1,15 +1,16 @@
 'use strict';
 
-import { window, workspace, WorkspaceConfiguration } from 'vscode';
+import { window, WorkspaceConfiguration } from 'vscode';
 
+import { getConfig } from 'vscode-get-config';
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { clearOutput, detectOutfile, getConfig, runInstaller } from './util';
+import { clearOutput, detectOutfile, runInstaller } from './util';
 
 const outputChannel = window.createOutputChannel('Inno Setup');
 
-const build = () => {
-  const config: WorkspaceConfiguration = getConfig();
+async function build() {
+  const config: WorkspaceConfiguration = await getConfig('innosetup');
 
   if (config.pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
     return window.showWarningMessage('This command is only available on Windows. See README for workarounds on non-Windows.');
@@ -17,8 +18,8 @@ const build = () => {
 
   const doc = window.activeTextEditor.document;
 
-  doc.save().then( () => {
-    clearOutput(outputChannel);
+  doc.save().then( async () => {
+    await clearOutput(outputChannel);
 
     // Let's build
     const iscc = spawn(config.pathToIscc, [ doc.fileName ]);
@@ -42,9 +43,9 @@ const build = () => {
       if (code === 0) {
         if (config.showNotifications) {
           window.showInformationMessage(`Successfully compiled '${doc.fileName}'`, openButton)
-          .then((choice) => {
+          .then(async (choice) => {
             if (choice === 'Run') {
-              runInstaller(outFile);
+              await runInstaller(outFile);
             }
           });
         }
@@ -54,6 +55,6 @@ const build = () => {
       }
     });
   });
-};
+}
 
 export { build };

@@ -2,15 +2,16 @@
 
 import { window, workspace, WorkspaceConfiguration } from 'vscode';
 
+import { getConfig } from 'vscode-get-config';
 import { mkdir, writeFile } from 'fs';
 import { join } from 'path';
 
-const createTask = () => {
+async function createTask() {
   if (typeof workspace.rootPath === 'undefined' || workspace.rootPath === null) {
     return window.showErrorMessage('Task support is only available when working on a workspace folder. It is not available when editing single files.');
   }
 
-  const config: WorkspaceConfiguration = workspace.getConfiguration('innosetup');
+  const config: WorkspaceConfiguration = await getConfig('innosetup');
 
   const taskFile: Object = {
       'version': '2.0.0',
@@ -50,6 +51,6 @@ const createTask = () => {
       });
     });
   });
-};
+}
 
 export { createTask };

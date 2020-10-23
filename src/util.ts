@@ -1,21 +1,23 @@
 'use strict';
 
-import { window, workspace, WorkspaceConfiguration } from 'vscode';
+import { workspace, WorkspaceConfiguration } from 'vscode';
 
 import { existsSync } from 'fs';
 import { platform } from 'os';
 import { spawn } from 'child_process';
+import { getConfig } from 'vscode-get-config';
 
-const clearOutput = (channel): void => {
-  let config: WorkspaceConfiguration = getConfig();
+async function clearOutput(channel): Promise<void> {
+  let alwaysShowOutput: boolean = await getConfig('innosetup.alwaysShowOutput');
 
   channel.clear();
-  if (config.alwaysShowOutput === true) {
+  
+  if (alwaysShowOutput === true) {
     channel.show(true);
   }
-};
+}
 
-const detectOutfile = (line): string => {
+function detectOutfile(line): string {
   if (line.indexOf('Resulting Setup program filename is:') !== -1) {
     let regex = /\r?\n(.*\.exe)\s*$/g;
     let result = regex.exec(line.toString());
@@ -30,21 +32,17 @@ const detectOutfile = (line): string => {
   }
 
   return '';
-};
+}
 
-const getConfig = () => {
-  return workspace.getConfiguration('innosetup');
-};
-
-const runInstaller = (outFile) => {
-  let config: any = getConfig();
+async function runInstaller(outFile) {
+  let useWineToRun: boolean = await getConfig('innosetup.useWineToRun');
 
   if (platform() === 'win32') {
     return spawn(outFile);
-  } else if (config.useWineToRun === true) {
+  } else if (useWineToRun === true) {
     return spawn('wine', [ outFile ]);
   }
-};
+}
 
 export {
   clearOutput,
