@@ -11,7 +11,6 @@ async function clearOutput(channel): Promise<void> {
   let alwaysShowOutput: boolean = await getConfig('innosetup.alwaysShowOutput');
 
   channel.clear();
-  
   if (alwaysShowOutput === true) {
     channel.show(true);
   }
