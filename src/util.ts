@@ -46,6 +46,5 @@ async function runInstaller(outFile) {
 export {
   clearOutput,
   detectOutfile,
-  getConfig,
   runInstaller,
 };
