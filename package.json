@@ -12,9 +12,10 @@
     "scripts": {
         "build": "webpack --mode production",
         "dev": "npm run start",
+        "lint": "vscode-linter",
         "postinstall": "node ./node_modules/vscode/bin/install",
         "start": "webpack --mode none --watch",
-        "test": "vscode-linter",
+        "test": "npm run lint",
         "vscode:prepublish": "npm run build"
     },
     "keywords": [
