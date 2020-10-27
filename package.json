@@ -159,7 +159,7 @@
     },
     "extensionDependencies": [],
     "dependencies": {
-        "vscode-get-config": "^0.1.0"
+        "vscode-get-config": "^0.2.0"
     },
     "devDependencies": {
         "@types/node": "^14.14.2",
