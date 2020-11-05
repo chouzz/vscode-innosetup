@@ -1,11 +1,18 @@
+# Development
+*.map
 .circleci/
 .editorconfig
+.eslintrc*
 .gitignore
 .travis.yml
 gulpfile.js
 package-lock.json
+rollup.config.js
+src/
+tsconfig.json
+tsconfig.tsbuildinfo
 tslint.json
-yarn.lock
+webpack.config.js
 
 # Package managers
 node_modules/
