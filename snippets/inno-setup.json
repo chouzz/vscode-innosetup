@@ -755,6 +755,11 @@
     "prefix": "SignToolRetryDelay",
     "body": "SignToolRetryDelay=${1:500}$0"
   },
+  {
+  "SignToolRunMinimized": {
+    "prefix": "SignToolRunMinimized",
+    "body": "SignToolRunMinimized=${1:yes|no}$0"
+  },
   "SlicesPerDisk": {
     "prefix": "SlicesPerDisk",
     "body": "SlicesPerDisk=${1:1}$0"
