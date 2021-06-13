@@ -3,7 +3,7 @@
 [![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
 [![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-innosetup)](https://github.com/idleberg/vscode-innosetup/releases)
 [![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.innosetup.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.innosetup)
-[![Travis](https://flat.badgen.net/travis/idleberg/vscode-innosetup)](https://travis-ci.org/idleberg/vscode-innosetup)
+[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/vscode-innosetup)](https://circleci.com/gh/idleberg/vscode-innosetup)
 [![David](https://flat.badgen.net/david/dev/idleberg/vscode-innosetup)](https://david-dm.org/idleberg/vscode-innosetup?type=dev)
 
 Language syntax, snippets and build system for Inno Setup
