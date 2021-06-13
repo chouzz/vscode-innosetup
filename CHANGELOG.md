@@ -1,6 +1,7 @@
 # v1.6.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.6.1)
 
 - fix syntax error in snippets
+- update dependencies
 
 # v1.6.0 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/1.6.0)
 
