@@ -1,32 +1,30 @@
-'use strict';
-
 import { window, WorkspaceConfiguration } from 'vscode';
 
 import { getConfig } from 'vscode-get-config';
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { clearOutput, detectOutfile, runInstaller } from './util';
+import { detectOutfile, runInstaller } from './util';
+import outputChannel from './channel';
 
-const outputChannel = window.createOutputChannel('Inno Setup');
-
-async function build() {
+async function build(): Promise<void>{
   const config: WorkspaceConfiguration = await getConfig('innosetup');
 
   if (config.pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
-    return window.showWarningMessage('This command is only available on Windows. See README for workarounds on non-Windows.');
+    window.showWarningMessage('This command is only available on Windows. See README for workarounds on non-Windows.');
+    return;
   }
 
   const doc = window.activeTextEditor.document;
 
   doc.save().then( async () => {
-    await clearOutput(outputChannel);
+    await outputChannel.clear();
 
     // Let's build
     const iscc = spawn(config.pathToIscc, [ doc.fileName ]);
 
-    let outFile: string = '';
+    let outFile = '';
 
-    iscc.stdout.on('data', (line: Array<any>) => {
+    iscc.stdout.on('data', (line: string) => {
       outputChannel.appendLine(line.toString());
 
       if (platform() === 'win32' && outFile === '') {
@@ -34,12 +32,12 @@ async function build() {
       }
     });
 
-    iscc.stderr.on('data', (line:  Array<any>) => {
+    iscc.stderr.on('data', (line:  string) => {
       outputChannel.appendLine(line.toString());
     });
 
     iscc.on('close', (code) => {
-      let openButton = (platform() === 'win32' && outFile !== '') ? 'Run' : null;
+      const openButton = (platform() === 'win32' && outFile !== '') ? 'Run' : null;
       if (code === 0) {
         if (config.showNotifications) {
           window.showInformationMessage(`Successfully compiled '${doc.fileName}'`, openButton)

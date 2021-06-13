@@ -1,22 +1,20 @@
-'use strict';
-
-import { commands } from 'vscode';
+import vscode from 'vscode';
 
 // Load package components
 import { build } from './iscc';
 import { createTask} from './task';
 
-const activate = (context) => {
+async function activate(context: vscode.ExtensionContext): Promise<void> {
   context.subscriptions.push(
-    commands.registerTextEditorCommand('extension.innosetup.compile', async () => {
+    vscode.commands.registerTextEditorCommand('extension.innosetup.compile', async () => {
       return await build();
     })
   );
   context.subscriptions.push(
-    commands.registerTextEditorCommand('extension.innosetup.create-build-task', async () => {
+    vscode.commands.registerTextEditorCommand('extension.innosetup.create-build-task', async () => {
       return await createTask();
     })
   );
-};
+}
 
 export { activate };
