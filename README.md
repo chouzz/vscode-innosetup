@@ -1,3 +1,5 @@
+> 🚨 This package is no longer under development. If you wish to take over this project, please get in touch!
+
 # Inno Setup for Visual Studio Code
 
 [![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
