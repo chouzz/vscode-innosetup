@@ -1,4 +1,4 @@
-> 🚨 This package is no longer under development. If you wish to take over this project, please get in touch!
+> 🚨 This package is no longer under development. If you wish to take over this project, please [get in touch](https://github.com/idleberg/vscode-innosetup/discussions)!
 
 # Inno Setup for Visual Studio Code
 
