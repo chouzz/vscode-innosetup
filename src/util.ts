@@ -32,5 +32,5 @@ async function runInstaller(outFile: string): Promise<void> {
 
 export {
   detectOutfile,
-  runInstaller,
+  runInstaller
 };

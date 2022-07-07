@@ -1,4 +1,4 @@
-import vscode from 'vscode';
+import * as vscode from 'vscode';
 
 import { getConfig } from 'vscode-get-config';
 import { promises as fs } from 'fs';
@@ -50,10 +50,12 @@ async function createTask(): Promise<void> {
     vscode.window.showErrorMessage(error.toString());
   }
 
-  if (alwaysOpenBuildTask === false) return;
+  if (alwaysOpenBuildTask === false) {
+    return;
+  }
 
   // Open tasks.json
-  const doc = await vscode.workspace.openTextDocument(buildFile)
+  const doc = await vscode.workspace.openTextDocument(buildFile);
   vscode.window.showTextDocument(doc);
 }
 

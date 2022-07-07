@@ -49,7 +49,9 @@ async function build(): Promise<void>{
         }
       } else {
         outputChannel.show(true);
-        if (config.showNotifications) window.showErrorMessage('Compilation failed, see output for details');
+        if (config.showNotifications) {
+          window.showErrorMessage('Compilation failed, see output for details');
+        }
       }
     });
   });

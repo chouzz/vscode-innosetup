@@ -1,13 +1,13 @@
-import vscode from 'vscode';
-import { getConfig } from 'vscode-get-config';
+import * as vscode from "vscode";
+import { getConfig } from "vscode-get-config";
 
 export default {
-  outputChannel: vscode.window.createOutputChannel('Inno Setup'),
+  outputChannel: vscode.window.createOutputChannel("Inno Setup"),
 
   async clear(): Promise<void> {
     this.outputChannel.clear();
 
-    const { alwaysShowOutput } = await getConfig('nsis');
+    const { alwaysShowOutput } = await getConfig("nsis");
 
     if (alwaysShowOutput) {
       this.show();
@@ -21,7 +21,7 @@ export default {
   async append(input: unknown): Promise<void> {
     this.outputChannel.append(input);
 
-    const { alwaysShowOutput } = await getConfig('nsis');
+    const { alwaysShowOutput } = await getConfig("nsis");
 
     if (alwaysShowOutput) {
       this.show();
@@ -31,7 +31,7 @@ export default {
   async appendLine(input: string): Promise<void> {
     this.outputChannel.appendLine(input);
 
-    const { alwaysShowOutput } = await getConfig('nsis');
+    const { alwaysShowOutput } = await getConfig("nsis");
 
     if (alwaysShowOutput) {
       this.show();
@@ -45,4 +45,4 @@ export default {
   show(preserveFocus = true): void {
     this.outputChannel.show(preserveFocus);
   }
-}
+};
