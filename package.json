@@ -173,20 +173,11 @@
         "eslint": "^8.19.0",
         "eslint-plugin-import": "^2.26.0",
         "husky": "^8.0.1",
-        "lint-staged": "^11.2.6",
         "typescript": "^4.7.4"
     },
     "babel": {
         "presets": [
             "@babel/env"
         ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged"
-        }
-    },
-    "lint-staged": {
-        "*.ts": "eslint --cache --fix"
     }
 }
