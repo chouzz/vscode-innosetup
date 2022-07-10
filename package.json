@@ -3,6 +3,7 @@
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
     "version": "1.7.0",
+    "icon": "images/icon.png",
     "publisher": "chouzz",
     "license": "MIT",
     "author": {
