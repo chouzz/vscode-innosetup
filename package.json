@@ -36,7 +36,7 @@
     },
     "main": "./lib/extension",
     "engines": {
-        "vscode": "^1.68.1"
+        "vscode": "^1.47.0"
     },
     "categories": [
         "Programming Languages",
@@ -166,7 +166,7 @@
         "@babel/preset-env": "^7.18.6",
         "@babel/register": "^7.18.6",
         "@types/node": "^15.12.2",
-        "@types/vscode": "^1.68.1",
+        "@types/vscode": "^1.47.0",
         "@typescript-eslint/eslint-plugin": "^5.30.5",
         "@typescript-eslint/eslint-plugin-tslint": "^5.30.5",
         "@typescript-eslint/parser": "^5.30.5",
