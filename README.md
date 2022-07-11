@@ -1,16 +1,15 @@
-> 🚨 This package is no longer under development. If you wish to take over this project, please [get in touch](https://github.com/idleberg/discussion/discussions/2)!
+> This is a fork version of  [idleberg/vscode-innosetup](https://github.com/idleberg/vscode-innosetup)! Thanks @idleberg!
 
 # Inno Setup for Visual Studio Code
 
 [![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
-[![GitHub](https://flat.badgen.net/github/release/idleberg/vscode-innosetup)](https://github.com/idleberg/vscode-innosetup/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/idleberg.innosetup.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=idleberg.innosetup)
-[![CircleCI](https://flat.badgen.net/circleci/github/idleberg/vscode-innosetup)](https://circleci.com/gh/idleberg/vscode-innosetup)
-[![David](https://flat.badgen.net/david/dev/idleberg/vscode-innosetup)](https://david-dm.org/idleberg/vscode-innosetup?type=dev)
+[![GitHub](https://flat.badgen.net/github/release/chouzz/vscode-innosetup)](https://github.com/chouzz/vscode-innosetup/releases)
+[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/chouzz.innosetup.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=chouzz.innosetup)
+[![GithubActions](https://github.com/chouzz/vscode-innosetup/actions/workflows/CI.yaml/badge.svg)](https://github.com/chouzz/vscode-innosetup/actions/workflows/CI.yaml/badge.svg)
 
 Language syntax, snippets and build system for Inno Setup
 
-![Screenshot](https://raw.githubusercontent.com/idleberg/vscode-innosetup/master/images/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/chouzz/vscode-innosetup/master/images/screenshot.png)
 
 *Screenshot of Inno Setup in Visual Studio Code with [Hopscotch](https://marketplace.visualstudio.com/items?itemName=idleberg.hopscotch) theme*
 
@@ -20,17 +19,17 @@ Language syntax, snippets and build system for Inno Setup
 
 Launch Quick Open, paste the following command, and press <kbd>Enter</kbd>
 
-`ext install idleberg.innosetup`
+`ext install chouzz.innosetup`
 
 ### CLI
 
 With [shell commands](https://code.visualstudio.com/docs/editor/command-line) installed, you can use the following command to install the extension:
 
-`$ code --install-extension idleberg.innosetup`
+`$ code --install-extension chouzz.innosetup`
 
 ### Packaged Extension
 
-Download the packaged extension from the the [release page](https://github.com/idleberg/vscode-innosetup/releases) and install it from the command-line:
+Download the packaged extension from the the [release page](https://github.com/chouzz/vscode-innosetup/releases) and install it from the command-line:
 
 ```bash
 $ code --install-extension path/to/innosetup-*.vsix
@@ -39,7 +38,7 @@ $ code --install-extension path/to/innosetup-*.vsix
 Alternatively, you can download the packaged extension from the [Open VSX Registry](https://open-vsx.org/) or install it using the [`ovsx`](https://www.npmjs.com/package/ovsx) command-line tool:
 
 ```bash
-$ ovsx get idleberg.innosetup
+$ ovsx get chouzz.innosetup
 ```
 
 ### Clone Repository
@@ -57,7 +56,7 @@ $ cd ~/.vscode/extensions/
 Clone repository as `innosetup`:
 
 ```bash
-$ git clone https://github.com/idleberg/vscode-innosetup innosetup
+$ git clone https://github.com/chouzz/vscode-innosetup innosetup
 ```
 ## Usage
 

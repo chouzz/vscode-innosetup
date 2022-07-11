@@ -1,3 +1,9 @@
+# v1.7.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.7.0)
+
+- add icons for extension
+- update readme
+- update dependencies
+
 # v1.6.1 [#](https://github.com/idleberg/vscode-innosetup/releases/tag/v1.6.1)
 
 - fix syntax error in snippets
