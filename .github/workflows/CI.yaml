@@ -17,8 +17,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macos-latest
-          - windows-latest
         node:
           - 16
     outputs:
@@ -48,7 +46,7 @@ jobs:
       - name: Upload Extension Package as Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.os }}
+          name: ${{ steps.packageExtension.outputs.vsixPath }}
           path: ${{ steps.packageExtension.outputs.vsixPath }}
   publish:
     name: Publish Github Action
@@ -69,7 +67,7 @@ jobs:
       - name: Download Build Artifact
         uses: actions/download-artifact@v2
         with:
-          name: ubuntu-latest
+          path: ${{ needs.build.outputs.vsixPath }}
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
