@@ -65,9 +65,9 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Download Build Artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          path: ${{ needs.build.outputs.vsixPath }}
+          name: ${{ needs.build.outputs.vsixPath }}
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
