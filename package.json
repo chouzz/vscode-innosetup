@@ -100,7 +100,10 @@
             {
                 "language": "innosetup",
                 "scopeName": "source.inno",
-                "path": "./syntaxes/inno-setup.tmLanguage"
+                "path": "./syntaxes/inno-setup.tmLanguage",
+                "embeddedLanguages": {
+                    "source.pascal.embedded.inno": "pascal"
+                }
             },
             {
                 "language": "innopascal",
