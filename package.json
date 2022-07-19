@@ -171,7 +171,7 @@
         "@types/node": "^18.0.6",
         "@types/vscode": "^1.47.0",
         "@typescript-eslint/eslint-plugin": "^5.30.7",
-        "@typescript-eslint/eslint-plugin-tslint": "^5.30.6",
+        "@typescript-eslint/eslint-plugin-tslint": "^5.30.7",
         "@typescript-eslint/parser": "^5.30.7",
         "esbuild": "^0.14.49",
         "eslint": "^8.20.0",
