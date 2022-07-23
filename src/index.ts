@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { BuildTaskProvider } from './buildTaskProvider';
 
 // Load package components
 import { build } from './iscc';
@@ -14,6 +15,9 @@ async function activate(context: vscode.ExtensionContext): Promise<void> {
     vscode.commands.registerTextEditorCommand('extension.innosetup.create-build-task', async () => {
       return await createTask();
     })
+  );
+  context.subscriptions.push(
+    vscode.tasks.registerTaskProvider('innosetup', new BuildTaskProvider())
   );
 }
 
