@@ -2,7 +2,7 @@
     "name": "vscode-innosetup",
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "1.7.0",
+    "version": "1.8.0",
     "icon": "images/icon.png",
     "publisher": "chouzz",
     "license": "MIT",
@@ -158,6 +158,57 @@
             {
                 "language": "innopascal",
                 "path": "./snippets/inno-pascal.json"
+            }
+        ],
+        "problemMatchers": [
+            {
+                "name": "innosetup-5-error",
+                "severity": "error",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^Error on line (.*) in (.*): Column (.*).*$",
+                        "file": 2,
+                        "location": 1,
+                        "column": 3
+                    },
+                    {
+                        "regexp": "^(.*)$",
+                        "message": 1
+                    }
+                ]
+            },
+            {
+                "name": "innosetup-5-warning",
+                "severity": "warning",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^Warning: (.*), Line (.*), Column (.*): (.*)$",
+                        "file": 1,
+                        "location": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                ]
+            },
+            {
+                "name": "innosetup-6-error",
+                "severity": "error",
+                "fileLocation": "absolute",
+                "pattern": [
+                    {
+                        "regexp": "^Error on line (.*) in (.*): (.*)$",
+                        "file": 2,
+                        "location": 1,
+                        "message": 3
+                    }
+                ]
+            }
+        ],
+        "taskDefinitions": [
+            {
+                "type": "innosetup"
             }
         ]
     },
