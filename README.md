@@ -9,23 +9,31 @@
 
 Language syntax, snippets and build system for Inno Setup
 
+## Features
+
+- Syntax Highlighting
+- Snippets
+- Build Innosetup Script via VSCode tasks
+- Highting building errors and warnings
+
+You need install [Pascal extension](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal) to highlight `Pascal` language in **[Code]** section
+
+*Screenshot of Inno Setup in Visual Studio Code*
+
 ![Screenshot](https://raw.githubusercontent.com/chouzz/vscode-innosetup/master/images/screenshot.png)
-
-*Screenshot of Inno Setup in Visual Studio Code with [Hopscotch](https://marketplace.visualstudio.com/items?itemName=idleberg.hopscotch) theme*
-
 ## Installation
 
 ### Extension Marketplace
 
 Launch Quick Open, paste the following command, and press <kbd>Enter</kbd>
 
-`ext install chouzz.innosetup`
+`ext install chouzz.vscode-innosetup`
 
 ### CLI
 
 With [shell commands](https://code.visualstudio.com/docs/editor/command-line) installed, you can use the following command to install the extension:
 
-`$ code --install-extension chouzz.innosetup`
+`$ code --install-extension chouzz.vscode-innosetup`
 
 ### Packaged Extension
 
@@ -35,11 +43,22 @@ Download the packaged extension from the the [release page](https://github.com/c
 $ code --install-extension path/to/innosetup-*.vsix
 ```
 
-Alternatively, you can download the packaged extension from the [Open VSX Registry](https://open-vsx.org/) or install it using the [`ovsx`](https://www.npmjs.com/package/ovsx) command-line tool:
+## Usage
 
-```bash
-$ ovsx get chouzz.innosetup
+### Building
+
+Before you can build, make sure `ISCC` is in your PATH [environmental variable](https://support.microsoft.com/en-us/kb/310519). Alternatively, you can specify the path to `ISCC` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
+
+**Example:**
+
+```json
+"innosetup.pathToIscc": "full\\path\\to\\ISCC.exe"
 ```
+
+*Note: If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs `ISCC` on Wine.*
+
+To trigger a build, you can selcect *Terminal*, run task *innosetup*, it will highlighting errors and warnings after building, or you can use *InnoSetup: Save & Compile* command from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
+
 
 ### Clone Repository
 
@@ -58,21 +77,6 @@ Clone repository as `innosetup`:
 ```bash
 $ git clone https://github.com/chouzz/vscode-innosetup innosetup
 ```
-## Usage
-
-### Building
-
-Before you can build, make sure `ISCC` is in your PATH [environmental variable](https://support.microsoft.com/en-us/kb/310519). Alternatively, you can specify the path to `ISCC` in your [user settings](https://code.visualstudio.com/docs/customization/userandworkspace).
-
-**Example:**
-
-```json
-"innosetup.pathToIscc": "full\\path\\to\\ISCC.exe"
-```
-
-*Note: If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs `ISCC` on Wine.*
-
-To trigger a build, select *InnoSetup: Save & Compile”* from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
 
 ## License
 
