@@ -1,3 +1,9 @@
+# v1.8.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.8.0)
+
+- fix wrong highlighting
+- fix broken syntax if string contain `"` or `'`
+- support highlighting errors and warnings after building
+  
 # v1.7.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.7.0)
 
 - add icons for extension
