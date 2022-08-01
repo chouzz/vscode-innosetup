@@ -13,8 +13,8 @@ Language syntax, snippets and build system for Inno Setup
 
 - Syntax Highlighting
 - Snippets
-- Build Innosetup Script via VSCode tasks
-- Highting building errors and warnings
+- Build Inno Setup Script via VSCode tasks
+- Highlighting building errors and warnings
 
 You need install [Pascal extension](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal) to highlight `Pascal` language in **[Code]** section
 
