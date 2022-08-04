@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import { generate } from './generater';
 import { BuildTaskProvider } from './buildTaskProvider';
 
 // Load package components
@@ -19,6 +20,7 @@ async function activate(context: vscode.ExtensionContext): Promise<void> {
   context.subscriptions.push(
     vscode.tasks.registerTaskProvider('innosetup', new BuildTaskProvider())
   );
+  generate();
 }
 
 export { activate };
