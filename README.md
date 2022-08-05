@@ -59,24 +59,12 @@ Before you can build, make sure `ISCC` is in your PATH [environmental variable](
 
 To trigger a build, you can selcect *Terminal*, run task *innosetup*, it will highlighting errors and warnings after building, or you can use *InnoSetup: Save & Compile* command from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
 
+## Issues/Contribution
 
-### Clone Repository
+If you've found a bug, please file at <https://github.com/chouzz/vscode-innosetup/issues>.
 
-Change to your Visual Studio Code extensions directory:
+If you'd like to help out, fork the [repo](https://github.com/chouzz/vscode-innosetup) and submit pull requests.
 
-```bash
-# Windows
-$ cd %USERPROFILE%\.vscode\extensions
-
-# Linux & macOS
-$ cd ~/.vscode/extensions/
-```
-
-Clone repository as `innosetup`:
-
-```bash
-$ git clone https://github.com/chouzz/vscode-innosetup innosetup
-```
 
 ## License
 
