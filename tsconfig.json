@@ -10,7 +10,7 @@
         "noFallthroughCasesInSwitch": true,
         "noImplicitAny": false,
         "removeComments": false,
-        "rootDir": ".",
+        "rootDir": "src",
         "sourceMap": true
     },
     "exclude": [

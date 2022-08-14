@@ -1,21 +1,24 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
+
 interface Variable {
     value: string;
     description: string;
 }
+
 export interface LanguageContext {
     constants: Variable[]; // constant varibale and it's description
 }
+
 enum State {
     none,
     blockParsing,
 }
+
 const CONSTANT_WORD_REG = /<dt>.*(\{\w+\}).*<\/dt>/;
 const CONSTANT_BLOCK_BEGIN = /^<dd>$/;
 const CONSTANT_BLOCK_END = /^<\/dd>$/;
-
 
 export function getLanguageContext(
     context: vscode.ExtensionContext,
@@ -29,7 +32,6 @@ export function getLanguageContext(
 export class IsetupParser {
     private _value = '';
     private _description = '';
-    constructor() {}
 
     public parse(str: string): LanguageContext {
         const lines = str.split('\n');
@@ -78,8 +80,23 @@ export class IsetupParser {
         this._description = '';
     }
 
-    private processAutoConstants(){
-        const autoConstantsLists = ['{autoappdata}','{autocf}','{autocf32}','{autocf64}','{autodesktop}','{autodocs}','{autofonts}','{autopf}','{autopf32}','{autopf64}','{autoprograms}','{autostartmenu}','{autostartup}','{autotemplates}'];
+    private processAutoConstants() {
+        const autoConstantsLists = [
+            '{autoappdata}',
+            '{autocf}',
+            '{autocf32}',
+            '{autocf64}',
+            '{autodesktop}',
+            '{autodocs}',
+            '{autofonts}',
+            '{autopf}',
+            '{autopf32}',
+            '{autopf64}',
+            '{autoprograms}',
+            '{autostartmenu}',
+            '{autostartup}',
+            '{autotemplates}',
+        ];
         const description = `
 <p>Besides the "common" and "user" constants, Inno Setup also supports "auto" constants. These automatically map to their "common" form unless the installation is running in <link topic="admininstallmode">non administrative install mode</link>, in which case they map to their "user" form.</p>
 <p>It is recommended you always use these "auto" constants when possible to avoid mistakes.</p>
@@ -103,6 +120,8 @@ export class IsetupParser {
 <tr><td><tt><a name="autotemplates">autotemplates</a></tt></td><td><tt>commontemplates</tt></td><td><tt>usertemplates</tt></td></tr>
 </table>
 </indent>`;
-        return autoConstantsLists.map(el => { return {value:el, description};});
+        return autoConstantsLists.map((el) => {
+            return { value: el, description };
+        });
     }
 }
