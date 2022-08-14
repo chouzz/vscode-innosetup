@@ -12,7 +12,6 @@ module.exports = {
     rules: {
         '@typescript-eslint/no-var-requires': 'error',
         '@typescript-eslint/semi': 'error',
-        'comma-dangle': 'error',
         curly: 'error',
         'eol-last': 'error',
         'import/no-default-export': 'error',
