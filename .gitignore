@@ -15,4 +15,3 @@ yarn.lock
 *.vsix
 images/logo.svg
 todo.md
-isetup.xml
