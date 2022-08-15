@@ -9,16 +9,19 @@ interface Variable {
 
 export interface LanguageContext {
     constants: Variable[]; // constant varibale and it's description
+    directives: Variable[];
 }
 
 enum State {
     none,
-    blockParsing,
+    constantsParsing,
+    directiveParsing,
 }
 
-const CONSTANT_WORD_REG = /<dt>.*(\{\w+\}).*<\/dt>/;
-const CONSTANT_BLOCK_BEGIN = /^<dd>$/;
-const CONSTANT_BLOCK_END = /^<\/dd>$/;
+const CONSTANTS_VALUE_REG = /<dt>.*(\{\w+\}).*<\/dt>/;
+const DIRECTIVE_VALUE_REG = /<setuptopic directive="(\w+)">/;
+
+const IGNORE_LABELS = [/<dd>/g, /<body>/g];
 
 export function getLanguageContext(
     context: vscode.ExtensionContext,
@@ -33,46 +36,86 @@ export class IsetupParser {
     private _value = '';
     private _description = '';
 
+    private _constantsVars: Variable[] = [];
+    private _directiveVars: Variable[] = [];
+
     public parse(str: string): LanguageContext {
         const lines = str.split('\n');
-        const constantsVars: Variable[] = [];
-        let state = State.none;
+        let lastState = State.none;
         for (let i = 0; i < lines.length; i++) {
-            if (CONSTANT_BLOCK_BEGIN.test(lines[i])) {
-                state = State.blockParsing;
-                continue;
-            } else if (CONSTANT_BLOCK_END.test(lines[i])) {
-                state = State.none;
-                continue;
+            let state = this.checkState(lines[i]) || lastState;
+            switch (state) {
+                case State.constantsParsing:
+                    state = this.processConstants(lines[i]);
+                    break;
+                case State.directiveParsing:
+                    state = this.processDirective(lines[i]);
+                    break;
+                default:
+                    break;
             }
-            if (state == State.blockParsing) {
-                this._description += lines[i];
-                continue;
-            }
-            if (this._value && this._description) {
-                constantsVars.push({
-                    value: this._value,
-                    description: this._description,
-                });
-                this.clear();
-            }
-            const match = CONSTANT_WORD_REG.exec(lines[i]);
-            if (match) {
-                this.clear();
-                this._value = match[1];
-            }
+            lastState = state;
         }
+
+        this._constantsVars.push(...this.processAutoConstants());
+        return {
+            constants: this._constantsVars,
+            directives: this._directiveVars,
+        };
+    }
+
+    private processResult(): Variable {
+        IGNORE_LABELS.forEach((el) => this._description.replace(el, ''));
         if (this._value && this._description) {
-            constantsVars.push({
+            return {
                 value: this._value,
                 description: this._description,
-            });
-            this.clear();
+            };
         }
-        constantsVars.push(...this.processAutoConstants());
-        return {
-            constants: constantsVars,
-        };
+    }
+
+    private processConstants(line: string) {
+        const match = line.match(CONSTANTS_VALUE_REG);
+        if (match) {
+            this._value = match[1];
+            return State.constantsParsing;
+        } else if (/<\/dd>/.test(line)) {
+            // match end of constants block
+            const result = this.processResult();
+            result && this._constantsVars.push(result);
+            this.clear();
+            return State.none;
+        } else {
+            this._description += line;
+            return State.constantsParsing;
+        }
+    }
+
+    private processDirective(line: string) {
+        const match = line.match(DIRECTIVE_VALUE_REG);
+        if (match) {
+            this._value = match[1];
+            return State.directiveParsing;
+        } else if (/<\/body>/.test(line)) {
+            // match end of directive block
+            const result = this.processResult();
+            result && this._directiveVars.push(result);
+            this.clear();
+            return State.none;
+        } else {
+            this._description += line;
+            return State.directiveParsing;
+        }
+    }
+
+    private checkState(line: string): State | undefined {
+        if (line.match(CONSTANTS_VALUE_REG)) {
+            return State.constantsParsing;
+        } else if (line.match(DIRECTIVE_VALUE_REG)) {
+            return State.directiveParsing;
+        } else {
+            return;
+        }
     }
 
     private clear() {

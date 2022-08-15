@@ -20,14 +20,19 @@ export class InnosetupHoverProvder implements vscode.HoverProvider {
         position: vscode.Position,
         token: vscode.CancellationToken,
     ): vscode.ProviderResult<vscode.Hover> {
-        const tokenRange = document.getWordRangeAtPosition(position, /\{\w+\}/g);
+        // contants hover provder
+        const tokenRange =
+            document.getWordRangeAtPosition(position, /\{\w+\}/g) ??
+            document.getWordRangeAtPosition(position);
         if (!tokenRange) {
             return null;
         }
         const text = document.getText(tokenRange);
-        const constant = this._context.constants.find((el) => el.value == text);
-        if (constant) {
-            const markdown = new vscode.MarkdownString(constant.description);
+        const variable =
+            this._context.constants.find((el) => el.value == text) ||
+            this._context.directives.find((el) => el.value == text);
+        if (variable) {
+            const markdown = new vscode.MarkdownString(variable.description);
             markdown.supportHtml = true;
             return new vscode.Hover(markdown);
         }
