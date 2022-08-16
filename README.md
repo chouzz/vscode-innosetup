@@ -15,6 +15,7 @@ Language syntax, snippets and build system for Inno Setup
 - Snippets
 - Build Inno Setup Script via VSCode tasks
 - Highlighting building errors and warnings
+- On hover information
 
 You need install [Pascal extension](https://marketplace.visualstudio.com/items?itemName=alefragnani.pascal) to highlight `Pascal` language in **[Code]** section
 
@@ -64,7 +65,6 @@ To trigger a build, you can selcect *Terminal*, run task *innosetup*, it will hi
 If you've found a bug, please file at <https://github.com/chouzz/vscode-innosetup/issues>.
 
 If you'd like to help out, fork the [repo](https://github.com/chouzz/vscode-innosetup) and submit pull requests.
-
 
 ## License
 
