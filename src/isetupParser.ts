@@ -10,16 +10,19 @@ interface Variable {
 export interface LanguageContext {
     constants: Variable[]; // constant varibale and it's description
     directives: Variable[];
+    params: Variable[];
 }
 
 enum State {
     none,
     constantsParsing,
     directiveParsing,
+    paramsParsing,
 }
 
 const CONSTANTS_VALUE_REG = /<dt>.*(\{\w+\}).*<\/dt>/;
 const DIRECTIVE_VALUE_REG = /<setuptopic directive="(\w+)">/;
+const PARAM_VALUE_REG = /<param name="(\w+)"/;
 
 const IGNORE_LABELS = [/<dd>/g, /<body>/g];
 
@@ -38,6 +41,7 @@ export class IsetupParser {
 
     private _constantsVars: Variable[] = [];
     private _directiveVars: Variable[] = [];
+    private _paramVars: Variable[] = [];
 
     public parse(str: string): LanguageContext {
         const lines = str.split('\n');
@@ -51,6 +55,9 @@ export class IsetupParser {
                 case State.directiveParsing:
                     state = this.processDirective(lines[i]);
                     break;
+                case State.paramsParsing:
+                    state = this.processParams(lines[i]);
+                    break;
                 default:
                     break;
             }
@@ -61,6 +68,7 @@ export class IsetupParser {
         return {
             constants: this._constantsVars,
             directives: this._directiveVars,
+            params: this._paramVars,
         };
     }
 
@@ -108,11 +116,30 @@ export class IsetupParser {
         }
     }
 
+    private processParams(line: string) {
+        const match = line.match(PARAM_VALUE_REG);
+        if (match) {
+            this._value = match[1];
+            return State.paramsParsing;
+        } else if (/<\/param>/.test(line)) {
+            // match end of directive block
+            const result = this.processResult();
+            result && this._paramVars.push(result);
+            this.clear();
+            return State.none;
+        } else {
+            this._description += line;
+            return State.paramsParsing;
+        }
+    }
+
     private checkState(line: string): State | undefined {
-        if (line.match(CONSTANTS_VALUE_REG)) {
+        if (CONSTANTS_VALUE_REG.test(line)) {
             return State.constantsParsing;
-        } else if (line.match(DIRECTIVE_VALUE_REG)) {
+        } else if (DIRECTIVE_VALUE_REG.test(line)) {
             return State.directiveParsing;
+        } else if (PARAM_VALUE_REG.test(line)) {
+            return State.paramsParsing;
         } else {
             return;
         }

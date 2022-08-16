@@ -30,7 +30,8 @@ export class InnosetupHoverProvder implements vscode.HoverProvider {
         const text = document.getText(tokenRange);
         const variable =
             this._context.constants.find((el) => el.value == text) ||
-            this._context.directives.find((el) => el.value == text);
+            this._context.directives.find((el) => el.value == text) ||
+            this._context.params.find((el) => el.value == text);
         if (variable) {
             const markdown = new vscode.MarkdownString(variable.description);
             markdown.supportHtml = true;
