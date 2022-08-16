@@ -1,3 +1,7 @@
+# v1.9.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.0)
+
+- Support on hover feature which can get value description when hovering
+
 # v1.8.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.8.0)
 
 - fix wrong highlighting
