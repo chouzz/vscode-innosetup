@@ -3,7 +3,7 @@ import * as path from 'path';
 
 export class BuildTaskProvider implements vscode.TaskProvider {
     public provideTasks(
-        token?: vscode.CancellationToken
+        token?: vscode.CancellationToken,
     ): vscode.ProviderResult<vscode.Task[]> {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
@@ -21,11 +21,11 @@ export class BuildTaskProvider implements vscode.TaskProvider {
         const execution = new vscode.ShellExecution(excutable, [
             {
                 value: file,
-                quoting: vscode.ShellQuoting.Strong
-            }
+                quoting: vscode.ShellQuoting.Strong,
+            },
         ]);
         const taskDef = {
-            type: 'innosetup'
+            type: 'innosetup',
         };
         const task = new vscode.Task(
             taskDef,
@@ -33,7 +33,7 @@ export class BuildTaskProvider implements vscode.TaskProvider {
             'compile script',
             'innosetup',
             execution,
-            ['innosetup-6-error', 'innosetup-5-error', 'innosetup-5-warning']
+            ['innosetup-6-error', 'innosetup-5-error', 'innosetup-5-warning'],
         );
         task.source = 'innosetup';
         task.group = vscode.TaskGroup.Build;
@@ -41,7 +41,7 @@ export class BuildTaskProvider implements vscode.TaskProvider {
     }
     public resolveTask(
         task: vscode.Task,
-        token?: vscode.CancellationToken
+        token?: vscode.CancellationToken,
     ): vscode.ProviderResult<vscode.Task> {
         return task;
     }
