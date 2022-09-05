@@ -216,7 +216,7 @@
         "vscode-get-config": "^0.4.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.18.10",
+        "@babel/core": "^7.18.13",
         "@babel/preset-env": "^7.18.10",
         "@babel/register": "^7.18.9",
         "@types/node": "^18.7.14",
