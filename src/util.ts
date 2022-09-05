@@ -1,7 +1,7 @@
 import { existsSync } from 'fs';
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { getConfig } from 'vscode-get-config';
+import * as vscode from 'vscode';
 
 function detectOutfile(line: string): string {
     if (line.indexOf('Resulting Setup program filename is:') !== -1) {
@@ -20,8 +20,12 @@ function detectOutfile(line: string): string {
     return '';
 }
 
+function getConfig<T>(section: string): T {
+    return vscode.workspace.getConfiguration('innosetup').get<T>(section);
+}
+
 async function runInstaller(outFile: string): Promise<void> {
-    const useWineToRun: boolean = await getConfig('innosetup.useWineToRun');
+    const useWineToRun: boolean = await getConfig('useWineToRun');
 
     if (platform() === 'win32') {
         spawn(outFile);
@@ -30,4 +34,4 @@ async function runInstaller(outFile: string): Promise<void> {
     }
 }
 
-export { detectOutfile, runInstaller };
+export { detectOutfile, runInstaller, getConfig };

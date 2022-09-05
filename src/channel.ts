@@ -1,48 +1,50 @@
 import * as vscode from 'vscode';
-import { getConfig } from 'vscode-get-config';
+import { getConfig } from './util';
 
-export default {
-    outputChannel: vscode.window.createOutputChannel('Inno Setup'),
+class Channel {
+    private outputChannel: vscode.OutputChannel;
+    private alwaysShowOutput: boolean;
 
-    async clear(): Promise<void> {
+    constructor() {
+        this.outputChannel = vscode.window.createOutputChannel('Inno Setup');
+        this.alwaysShowOutput = getConfig('alwaysShowOutput');
+    }
+
+    public clear(): void {
         this.outputChannel.clear();
 
-        const { alwaysShowOutput } = await getConfig('nsis');
-
-        if (alwaysShowOutput) {
+        if (this.alwaysShowOutput) {
             this.show();
         }
-    },
+    }
 
     dispose(): void {
         this.outputChannel.dispose();
-    },
+    }
 
-    async append(input: unknown): Promise<void> {
+    async append(input: string): Promise<void> {
         this.outputChannel.append(input);
 
-        const { alwaysShowOutput } = await getConfig('nsis');
-
-        if (alwaysShowOutput) {
+        if (this.alwaysShowOutput) {
             this.show();
         }
-    },
+    }
 
     async appendLine(input: string): Promise<void> {
         this.outputChannel.appendLine(input);
 
-        const { alwaysShowOutput } = await getConfig('nsis');
-
-        if (alwaysShowOutput) {
+        if (this.alwaysShowOutput) {
             this.show();
         }
-    },
+    }
 
     hide(): void {
         this.outputChannel.hide();
-    },
+    }
 
     show(preserveFocus = true): void {
         this.outputChannel.show(preserveFocus);
-    },
-};
+    }
+}
+
+export const outputChannel = new Channel();

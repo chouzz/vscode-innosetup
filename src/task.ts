@@ -1,21 +1,18 @@
 import * as vscode from 'vscode';
 
-import { getConfig } from 'vscode-get-config';
 import { promises as fs } from 'fs';
 import { join } from 'path';
+import { getConfig } from './util';
 
 async function createTask(): Promise<void> {
-    if (
-        typeof vscode.workspace.rootPath === 'undefined' ||
-        vscode.workspace.rootPath === null
-    ) {
+    if (typeof vscode.workspace.rootPath === 'undefined' || vscode.workspace.rootPath === null) {
         vscode.window.showErrorMessage(
             'Task support is only available when working on a workspace folder. It is not available when editing single files.',
         );
         return;
     }
-
-    const { alwaysOpenBuildTask, pathToIscc } = await getConfig('nsis');
+    const alwaysOpenBuildTask = getConfig('alwaysOpenBuildTask');
+    const pathToIscc = getConfig('pathToIscc');
 
     const taskFile = {
         version: '2.0.0',
