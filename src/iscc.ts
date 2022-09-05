@@ -1,15 +1,15 @@
 import { window, WorkspaceConfiguration } from 'vscode';
 
-import { getConfig } from 'vscode-get-config';
 import { platform } from 'os';
 import { spawn } from 'child_process';
-import { detectOutfile, runInstaller } from './util';
-import outputChannel from './channel';
+import { detectOutfile, getConfig, runInstaller } from './util';
+import { outputChannel } from './channel';
 
 async function build(): Promise<void> {
-    const config: WorkspaceConfiguration = await getConfig('innosetup');
+    const pathToIscc = getConfig<string>('pathToIscc');
+    const showNotifications = getConfig<string>('showNotifications');
 
-    if (config.pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
+    if (pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
         window.showWarningMessage(
             'This command is only available on Windows. See README for workarounds on non-Windows.',
         );
@@ -22,7 +22,7 @@ async function build(): Promise<void> {
         await outputChannel.clear();
 
         // Let's build
-        const iscc = spawn(config.pathToIscc, [doc.fileName]);
+        const iscc = spawn(pathToIscc, [doc.fileName]);
 
         let outFile = '';
 
@@ -39,15 +39,11 @@ async function build(): Promise<void> {
         });
 
         iscc.on('close', (code) => {
-            const openButton =
-                platform() === 'win32' && outFile !== '' ? 'Run' : null;
+            const openButton = platform() === 'win32' && outFile !== '' ? 'Run' : null;
             if (code === 0) {
-                if (config.showNotifications) {
+                if (showNotifications) {
                     window
-                        .showInformationMessage(
-                            `Successfully compiled '${doc.fileName}'`,
-                            openButton,
-                        )
+                        .showInformationMessage(`Successfully compiled '${doc.fileName}'`, openButton)
                         .then(async (choice) => {
                             if (choice === 'Run') {
                                 await runInstaller(outFile);
@@ -56,10 +52,8 @@ async function build(): Promise<void> {
                 }
             } else {
                 outputChannel.show(true);
-                if (config.showNotifications) {
-                    window.showErrorMessage(
-                        'Compilation failed, see output for details',
-                    );
+                if (showNotifications) {
+                    window.showErrorMessage('Compilation failed, see output for details');
                 }
             }
         });
