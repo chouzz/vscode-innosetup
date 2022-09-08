@@ -221,7 +221,7 @@
         "@typescript-eslint/eslint-plugin": "^5.36.1",
         "@typescript-eslint/eslint-plugin-tslint": "^5.31.0",
         "@typescript-eslint/parser": "^5.31.0",
-        "esbuild": "^0.14.51",
+        "esbuild": "^0.15.7",
         "eslint": "^8.23.0",
         "eslint-plugin-import": "^2.26.0",
         "husky": "^8.0.1",
