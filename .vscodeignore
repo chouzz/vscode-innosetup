@@ -28,3 +28,6 @@ images/logo.svg
 src/
 todo.md
 tsconfig.tsbuildinfo
+.vscode
+.github
+.husky

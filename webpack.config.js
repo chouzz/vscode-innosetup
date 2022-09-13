@@ -7,7 +7,7 @@ const path = require('path');
 /**@type {import('webpack').Configuration}*/
 const config = {
   target: 'node',
-
+  mode: 'production',
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib'),
@@ -27,11 +27,11 @@ const config = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader'
-          }
-        ]
+        loader: 'esbuild-loader',
+        options: {
+          loader: 'ts',
+          target: 'es2015'
+        }
       }
     ]
   }
