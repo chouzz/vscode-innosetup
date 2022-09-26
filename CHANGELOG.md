@@ -1,3 +1,7 @@
+# v1.9.1 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.1)
+
+- Fix broken command when running create build task command
+
 # v1.9.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.0)
 
 - Support on hover feature which can get value description when hovering
