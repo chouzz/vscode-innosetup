@@ -44,7 +44,9 @@
         "Other"
     ],
     "activationEvents": [
-        "onLanguage:innosetup"
+        "onLanguage:innosetup",
+        "onCommand:extension.innosetup.create-build-task",
+        "onCommand:extension.innosetup.compile"
     ],
     "contributes": {
         "configuration": {
