@@ -215,7 +215,7 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.18.13",
+        "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.18.10",
         "@babel/register": "^7.18.9",
         "@types/node": "^18.7.16",
