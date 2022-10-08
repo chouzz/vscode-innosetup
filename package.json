@@ -215,10 +215,10 @@
         ]
     },
     "devDependencies": {
-        "@babel/core": "^7.18.13",
-        "@babel/preset-env": "^7.18.10",
+        "@babel/core": "^7.19.3",
+        "@babel/preset-env": "^7.19.3",
         "@babel/register": "^7.18.9",
-        "@types/node": "^18.7.16",
+        "@types/node": "^18.8.3",
         "@types/vscode": "^1.65.0",
         "@typescript-eslint/eslint-plugin": "^5.36.1",
         "@typescript-eslint/eslint-plugin-tslint": "^5.38.1",
