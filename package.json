@@ -223,7 +223,7 @@
         "@typescript-eslint/eslint-plugin": "^5.36.1",
         "@typescript-eslint/eslint-plugin-tslint": "^5.38.1",
         "@typescript-eslint/parser": "^5.36.2",
-        "esbuild": "^0.14.51",
+        "esbuild": "^0.15.10",
         "esbuild-loader": "^2.20.0",
         "eslint": "^8.23.0",
         "eslint-plugin-import": "^2.26.0",
