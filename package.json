@@ -11,8 +11,8 @@
         "url": "https://github.com/chouzz"
     },
     "scripts": {
-        "compile": "npm run build",
-        "build": "webpack",
+        "compile": "webpack --mode development",
+        "build": "webpack --mode production",
         "fix": "eslint --fix ./src",
         "lint": "eslint src --ext ts --ignore-path .gitignore",
         "test": "node ./out/test/runTest.js",

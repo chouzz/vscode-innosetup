@@ -17,7 +17,7 @@ export class BuildTaskProvider implements vscode.TaskProvider {
         const excutable =
             vscode.workspace
                 .getConfiguration('innosetup')
-                .get<string>('') || '';
+                .get<string>('pathToIscc') || '';
         const execution = new vscode.ShellExecution(excutable, [
             {
                 value: file,
