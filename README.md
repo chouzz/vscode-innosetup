@@ -4,7 +4,7 @@
 
 [![The MIT License](https://flat.badgen.net/badge/license/MIT/orange)](http://opensource.org/licenses/MIT)
 [![GitHub](https://flat.badgen.net/github/release/chouzz/vscode-innosetup)](https://github.com/chouzz/vscode-innosetup/releases)
-[![Visual Studio Marketplace](https://vsmarketplacebadge.apphb.com/installs-short/Chouzz.vscode-innosetup.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=Chouzz.vscode-innosetup)
+[![Visual Studio Marketplace](https://vsmarketplacebadges.dev/installs-short/Chouzz.vscode-innosetup.svg?style=flat-square)](https://marketplace.visualstudio.com/items?itemName=Chouzz.vscode-innosetup)
 [![GithubActions](https://github.com/chouzz/vscode-innosetup/actions/workflows/CI.yaml/badge.svg)](https://github.com/chouzz/vscode-innosetup/actions/workflows/CI.yaml/badge.svg)
 
 Language syntax, snippets and build system for Inno Setup
