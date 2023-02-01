@@ -224,7 +224,7 @@
         "@typescript-eslint/eslint-plugin-tslint": "^5.45.1",
         "@typescript-eslint/parser": "^5.45.1",
         "esbuild": "^0.15.16",
-        "esbuild-loader": "^2.20.0",
+        "esbuild-loader": "^2.21.0",
         "eslint": "^8.28.0",
         "eslint-plugin-import": "^2.26.0",
         "husky": "^8.0.2",
