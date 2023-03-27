@@ -266,5 +266,8 @@
         "presets": [
             "@babel/env"
         ]
+    },
+    "dependencies": {
+        "@vscode/extension-telemetry": "^0.7.7"
     }
 }

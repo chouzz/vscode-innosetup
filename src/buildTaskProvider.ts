@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as cp from 'child_process';
+import * as telemetry from './telemetry';
 
 export interface BuildTaskDefinition extends vscode.TaskDefinition {
     type: string;
@@ -15,6 +16,7 @@ export class BuildTaskProvider implements vscode.TaskProvider {
     static buildSourceStr = 'innosetup';
     private tasks: vscode.Task[] | undefined;
     public provideTasks(token?: vscode.CancellationToken): vscode.ProviderResult<vscode.Task[]> {
+        telemetry.reporter.sendTelemetryEvent('innosetup.tasks.provideTasks');
         if (this.tasks) {
             return this.tasks;
         }
@@ -32,6 +34,7 @@ export class BuildTaskProvider implements vscode.TaskProvider {
         return this.tasks;
     }
     public resolveTask(task: vscode.Task, token?: vscode.CancellationToken): vscode.ProviderResult<vscode.Task> {
+        telemetry.reporter.sendTelemetryEvent('innosetup.tasks.resolveTask');
         return this.getTask(task.definition.command, task.definition.args, task.definition as BuildTaskDefinition);
     }
 
