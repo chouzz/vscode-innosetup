@@ -220,7 +220,7 @@
         "@babel/register": "^7.18.9",
         "@types/node": "^18.11.9",
         "@types/vscode": "^1.65.0",
-        "@typescript-eslint/eslint-plugin": "^5.45.1",
+        "@typescript-eslint/eslint-plugin": "^5.57.0",
         "@typescript-eslint/eslint-plugin-tslint": "^5.45.1",
         "@typescript-eslint/parser": "^5.45.1",
         "esbuild": "^0.15.16",
