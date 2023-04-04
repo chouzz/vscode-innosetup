@@ -17,7 +17,12 @@ const config = {
   },
   devtool: 'source-map',
   externals: {
-    vscode: 'commonjs vscode'
+    vscode: 'commonjs vscode',
+    'applicationinsights-native-metrics': 'commonjs applicationinsights-native-metrics', // ignored because we don't ship native module
+    '@opentelemetry/tracing': 'commonjs @opentelemetry/tracing', // ignored because we don't ship this module
+    '@opentelemetry/instrumentation': 'commonjs @opentelemetry/instrumentation', // ignored because we don't ship this module
+    '@azure/opentelemetry-instrumentation-azure-sdk': 'commonjs @azure/opentelemetry-instrumentation-azure-sdk', // ignored because we don't ship this module
+    '@azure/functions-core': 'commonjs @azure/functions-core' 
   },
   resolve: {
     extensions: ['.ts', '.js']
