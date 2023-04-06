@@ -7,7 +7,6 @@ const path = require('path');
 /**@type {import('webpack').Configuration}*/
 const config = {
   target: 'node',
-  mode: 'production',
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'lib'),

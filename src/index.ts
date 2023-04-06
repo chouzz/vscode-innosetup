@@ -24,7 +24,7 @@ async function activate(context: vscode.ExtensionContext): Promise<void> {
         ),
     );
     context.subscriptions.push(
-        vscode.tasks.registerTaskProvider('innosetup', new BuildTaskProvider()),
+        vscode.tasks.registerTaskProvider(BuildTaskProvider.buildScriptType, new BuildTaskProvider()),
     );
 
     hoverProvider.activate(context);
