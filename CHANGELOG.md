@@ -1,3 +1,8 @@
+# v1.9.2 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.2)
+
+- Ability to run innosetup compile via vscode tasks(Terminal -> Run build task or `Ctrl+shift+B`)
+- Ability to show errors in `Porblem window` if compile via tasks
+
 # v1.9.1 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.1)
 
 - Fix broken command when running create build task command
