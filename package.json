@@ -166,7 +166,7 @@
             {
                 "name": "innosetup-5-error",
                 "severity": "error",
-                "fileLocation": "absolute",
+                "fileLocation": "autoDetect",
                 "pattern": [
                     {
                         "regexp": "^Error on line (.*) in (.*): Column (.*).*$",
@@ -183,12 +183,12 @@
             {
                 "name": "innosetup-5-warning",
                 "severity": "warning",
-                "fileLocation": "absolute",
+                "fileLocation": "autoDetect",
                 "pattern": [
                     {
                         "regexp": "^Warning: (.*), Line (.*), Column (.*): (.*)$",
                         "file": 1,
-                        "location": 2,
+                        "line": 2,
                         "column": 3,
                         "message": 4
                     }
@@ -197,12 +197,13 @@
             {
                 "name": "innosetup-6-error",
                 "severity": "error",
-                "fileLocation": "absolute",
+                "fileLocation": "autoDetect",
                 "pattern": [
                     {
                         "regexp": "^Error on line (.*) in (.*): (.*)$",
                         "file": 2,
-                        "location": 1,
+                        "line": 1,
+                        "column": 1,
                         "message": 3
                     }
                 ]
@@ -210,7 +211,36 @@
         ],
         "taskDefinitions": [
             {
-                "type": "innosetup"
+                "type": "innosetup-build",
+                "required": [ "label", "command" ],
+                "properties": {
+                    "label": {
+                        "type": "string",
+                        "description": "The name of the task"
+                    },
+                    "command": {
+                        "type": "string",
+                        "description": "The path of innosetup compiler, default value is ISCC.exe"
+                    },
+                    "args": {
+                        "type": "array",
+                        "description": "Additional arguments to pass to the ISCC.exe, such as /Qp /O"
+                    },
+                    "options": {
+                        "type": "object",
+                        "description": "Additional command options",
+                        "properties": {
+                          "cwd": {
+                            "type": "string",
+                            "description": "The current working directory of the executed program or script. If omitted Code's current workspace root is used"
+                          }
+                        }
+                      },
+                      "detail": {
+                        "type": "string",
+                        "description": "Additional details of the task"
+                      }
+                }
             }
         ]
     },
