@@ -2,7 +2,7 @@
     "name": "vscode-innosetup",
     "displayName": "Inno Setup",
     "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "1.9.2",
+    "version": "1.9.3",
     "icon": "images/icon.png",
     "publisher": "chouzz",
     "license": "MIT",

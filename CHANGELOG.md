@@ -1,3 +1,8 @@
+# v1.9.3 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.3)
+
+- Fix syntax is broken when a string contains quotes after the = character
+- Fix some parameters are not highlighted
+
 # v1.9.2 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.2)
 
 - Ability to run innosetup compile via vscode tasks(Terminal -> Run build task or `Ctrl+shift+B`)
