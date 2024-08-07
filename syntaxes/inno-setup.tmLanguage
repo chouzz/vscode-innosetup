@@ -58,6 +58,13 @@
 
         <dict>
             <key>match</key>
+            <string>^\s*(?i)[a-z]{2}\.(CopyrightFontName|CopyrightFontSize|DialogFontName|DialogFontSize|LanguageCodePage|LanguageID|LanguageName|RightToLeft|TitleFontName|TitleFontSize|WelcomeFontName|WelcomeFontSize)(?=\s*=)</string>
+            <key>name</key>
+            <string>keyword.inno</string>
+        </dict>
+
+        <dict>
+            <key>match</key>
             <string>^\s*#(append|define|dim|elif|else|emit|endif|endsub|error|expr|file|for|if|ifn?def|ifn?exist|include|insert|pragma|preproc|redim|sub|undef)\b</string>
             <key>name</key>
             <string>keyword.other.inno</string>
@@ -65,7 +72,7 @@
 
         <dict>
             <key>match</key>
-            <string>\b(?i)(AfterInstall|AfterMyProgInstall|Attribs|BeforeInstall|BeforeMyProgInstall|Check|Components|Description|DestDir|DestName|Excludes|Filename|Flags|GroupDescription|Languages|Name|Parameters|Permissions|Root|RunOnceId|Source|StatusMsg|Subkey|Type|Types|ValueData|ValueName|ValueType|Verb|WorkingDir)(?=\s*:)</string>
+            <string>\b(?i)(AfterInstall|AfterMyProgInstall|AppUserModelID|AppUserModelToastActivatorCLSID|Attribs|BeforeInstall|BeforeMyProgInstall|Check|Comment|Components|CopyMode|Description|DestDir|DestName|Excludes|ExternalSize|ExtraDiskSpaceRequired|Filename|Flags|GroupDescription|Hotkey|IconFilename|IconIndex|InfoAfterFile|InfoBeforeFile|Key|Languages|LicenseFile|MessagesFile|Name|Parameters|Permissions|Root|RunOnceId|Section|Source|StatusMsg|String|Subkey|Tasks|Type|Types|ValueData|ValueName|ValueType|Verb|WorkingDir)(?=\s*:)</string>
             <key>name</key>
             <string>keyword.other.inno</string>
         </dict>
@@ -122,7 +129,7 @@
         <!-- Quoted Strings -->
         <dict>
             <key>begin</key>
-            <string>(?<!\=.*)"</string>
+            <string>(?<!(?<!".*)\=.*)"</string>
             <key>beginCaptures</key>
             <dict>
                 <key>0</key>
@@ -161,7 +168,7 @@
         </dict>
         <dict>
             <key>begin</key>
-            <string>(?<!\=.*)'</string>
+            <string>(?<!(?<!'.*)\=.*)'</string>
             <key>beginCaptures</key>
             <dict>
                 <key>0</key>
