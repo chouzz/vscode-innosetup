@@ -16,6 +16,10 @@ async function build(): Promise<void> {
         return;
     }
 
+
+
+
+    
     const doc = window.activeTextEditor.document;
 
     doc.save().then(async () => {
