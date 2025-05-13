@@ -38,7 +38,7 @@ With [shell commands](https://code.visualstudio.com/docs/editor/command-line) in
 
 ### Packaged Extension
 
-Download the packaged extension from the the [release page](https://github.com/chouzz/vscode-innosetup/releases) and install it from the command-line:
+Download the packaged extension from the [release page](https://github.com/chouzz/vscode-innosetup/releases) and install it from the command-line:
 
 ```bash
 $ code --install-extension path/to/innosetup-*.vsix
@@ -58,7 +58,7 @@ Before you can build, make sure `ISCC` is in your PATH [environmental variable](
 
 *Note: If you're on non-Windows, you could specify the path to this [bash script](https://gist.github.com/derekstavis/8288379), which runs `ISCC` on Wine.*
 
-To trigger a build, you can selcect *Terminal*, run task *innosetup*, it will highlighting errors and warnings after building, or you can use *InnoSetup: Save & Compile* command from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
+To trigger a build, you can select *Terminal*, run task *innosetup*, it will highlighting errors and warnings after building, or you can use *InnoSetup: Save & Compile* command from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
 
 ## Issues/Contribution
 
