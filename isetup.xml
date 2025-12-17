@@ -1091,6 +1091,7 @@ DefaultGroupName=My Program
 <li><link topic="setup_uninstalldisplaysize">UninstallDisplaySize</link></li>
 <li><link topic="setup_uninstallfilesdir">UninstallFilesDir</link></li>
 <li><link topic="setup_uninstalllogmode">UninstallLogMode</link></li>
+<li><link topic="setup_uninstalllogging">UninstallLogging</link></li>
 <li><link topic="setup_uninstallrestartcomputer">UninstallRestartComputer</link></li>
 <li><link topic="setup_updateuninstalllogappname">UpdateUninstallLogAppName</link></li>
 <li><link topic="setup_usepreviousappdir">UsePreviousAppDir</link></li>
@@ -4506,6 +4507,19 @@ UninstallDisplayIcon={app}\MyProg.exe,1
 </body>
 </setuptopic>
 
+<setuptopic directive="UninstallLogging">
+<keyword value="logging" />
+<keyword value="/LOG" />
+<setupvalid><link topic="yesnonotes"><tt>yes</tt> or <tt>no</tt></link></setupvalid>
+<setupdefault><tt>no</tt></setupdefault>
+<body>
+<p>If set to <tt>yes</tt>, the uninstaller will always create a log file if it is launched from the Add/Remove Programs Control Panel applet. Equivalent to passing <link topic="setupcmdline" anchor="LOG">/LOG</link> on the command line.</p>
+<p>This directive has no effect if <link topic="setup_createuninstallregkey">CreateUninstallRegKey</link< is not set to yes.</p>
+<p><b>See also:</b><br/>
+<link topic="setup_setuplogging">SetupLogging</link></p>
+</body>
+</setuptopic>
+
 <setuptopic directive="UninstallRestartComputer">
 <setupvalid><link topic="yesnonotes"><tt>yes</tt> or <tt>no</tt></link></setupvalid>
 <setupdefault><tt>no</tt></setupdefault>
@@ -5310,6 +5324,8 @@ DiskSliceSize=1457664
 <setupdefault><tt>no</tt></setupdefault>
 <body>
 <p>If set to <tt>yes</tt>, Setup will always create a log file. Equivalent to passing <link topic="setupcmdline" anchor="LOG">/LOG</link> on the command line.</p>
+<p><b>See also:</b><br/>
+<link topic="setup_uninstalllogging">UninstallLogging</link></p>
 </body>
 </setuptopic>
 
