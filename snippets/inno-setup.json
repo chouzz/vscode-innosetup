@@ -851,6 +851,18 @@
     "prefix": "UninstallLogMode=overwrite",
     "body": "UninstallLogMode=overwrite$0"
   },
+  "UninstallLogging": {
+    "prefix": "UninstallLogging",
+    "body": "UninstallLogging=${1:no|yes}$0"
+  },
+  "UninstallLogging=no (default)": {
+    "prefix": "UninstallLogging=no (default)",
+    "body": "UninstallLogging=no$0"
+  },
+  "UninstallLogging=yes": {
+    "prefix": "UninstallLogging=yes",
+    "body": "UninstallLogging=yes$0"
+  },
   "UninstallRestartComputer": {
     "prefix": "UninstallRestartComputer",
     "body": "UninstallRestartComputer=${1:no|yes}$0"
