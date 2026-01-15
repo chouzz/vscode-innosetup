@@ -1,3 +1,10 @@
+# v1.10.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.10.0)
+
+- Add support for Inno Setup 6.7
+- Update CI workflow: deprecated GitHub Actions and Node.js version
+- Add support for UninstallLogging
+- Fix typos
+
 # v1.9.3 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.9.3)
 
 - Fix syntax is broken when a string contains quotes after the = character
