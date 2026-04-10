@@ -1,3 +1,7 @@
+# v1.11.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.11.0)
+
+- Add three new DynamicDark directives to syntax highlighting (#132)
+
 # v1.10.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.10.0)
 
 - Add support for Inno Setup 6.7
