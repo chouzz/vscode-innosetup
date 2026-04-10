@@ -68,6 +68,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: extension-package
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ needs.build.outputs.vsixPath }}
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v1
         with:
