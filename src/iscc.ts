@@ -1,5 +1,6 @@
-import { window, WorkspaceConfiguration } from 'vscode';
+import { window, WorkspaceConfiguration, workspace } from 'vscode';
 
+import * as path from 'path';
 import { platform } from 'os';
 import { spawn } from 'child_process';
 import { detectOutfile, getConfig, runInstaller } from './util';
@@ -8,6 +9,7 @@ import { outputChannel } from './channel';
 async function build(): Promise<void> {
     const pathToIscc = getConfig<string>('pathToIscc');
     const showNotifications = getConfig<string>('showNotifications');
+    const scriptPath = getConfig<string>('scriptPath');
 
     if (pathToIscc === 'ISCC.exe' && platform() !== 'win32') {
         window.showWarningMessage(
@@ -17,12 +19,13 @@ async function build(): Promise<void> {
     }
 
     const doc = window.activeTextEditor.document;
+    const scriptFile = getScriptFile(doc.fileName, scriptPath);
 
     doc.save().then(async () => {
         await outputChannel.clear();
 
         // Let's build
-        const iscc = spawn(pathToIscc, [doc.fileName]);
+        const iscc = spawn(pathToIscc, [scriptFile]);
 
         let outFile = '';
 
@@ -43,7 +46,7 @@ async function build(): Promise<void> {
             if (code === 0) {
                 if (showNotifications) {
                     window
-                        .showInformationMessage(`Successfully compiled '${doc.fileName}'`, openButton)
+                        .showInformationMessage(`Successfully compiled '${scriptFile}'`, openButton)
                         .then(async (choice) => {
                             if (choice === 'Run') {
                                 await runInstaller(outFile);
@@ -58,6 +61,19 @@ async function build(): Promise<void> {
             }
         });
     });
+}
+
+function getScriptFile(activeFile: string, scriptPath?: string): string {
+    if (!scriptPath) {
+        return activeFile;
+    }
+
+    if (path.isAbsolute(scriptPath)) {
+        return scriptPath;
+    }
+
+    const root = workspace.rootPath || path.dirname(activeFile);
+    return path.join(root, scriptPath);
 }
 
 export { build };
