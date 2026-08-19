@@ -58,6 +58,10 @@
                     "default": "ISCC.exe",
                     "description": "Specify the full path to `ISCC`"
                 },
+                "innosetup.scriptPath": {
+                    "type": "string",
+                    "description": "Specify the path to the Inno Setup script file to compile. If not set, the currently active document is compiled"
+                },
                 "innosetup.showNotifications": {
                     "type": "boolean",
                     "default": true,

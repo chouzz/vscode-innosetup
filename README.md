@@ -60,6 +60,12 @@ Before you can build, make sure `ISCC` is in your PATH [environmental variable](
 
 To trigger a build, you can select *Terminal*, run task *innosetup*, it will highlighting errors and warnings after building, or you can use *InnoSetup: Save & Compile* command from the [command-palette](https://code.visualstudio.com/docs/editor/codebasics#_command-palette) or use the default keyboard shortcut <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>B</kbd>.
 
+By default, the file currently open in the editor is passed to the compiler. If you split your project into a main `.iss` script and one or more `.pas` files, you can instead pass a specific script to the compiler with the `innosetup.scriptPath` setting:
+
+```json
+"innosetup.scriptPath": "path\\to\\main.iss"
+```
+
 ## Issues/Contribution
 
 If you've found a bug, please file at <https://github.com/chouzz/vscode-innosetup/issues>.
