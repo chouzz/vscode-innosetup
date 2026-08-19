@@ -1,277 +1,280 @@
 {
-    "name": "vscode-innosetup",
-    "displayName": "Inno Setup",
-    "description": "Language syntax, snippets and build system for Inno Setup",
-    "version": "1.11.0",
-    "icon": "images/icon.png",
-    "publisher": "chouzz",
-    "license": "MIT",
-    "author": {
-        "name": "Chouzz",
-        "url": "https://github.com/chouzz"
+  "name": "vscode-innosetup",
+  "displayName": "Inno Setup",
+  "description": "Language syntax, snippets and build system for Inno Setup",
+  "version": "1.12.0",
+  "icon": "images/icon.png",
+  "publisher": "chouzz",
+  "license": "MIT",
+  "author": {
+    "name": "Chouzz",
+    "url": "https://github.com/chouzz"
+  },
+  "scripts": {
+    "compile": "webpack --mode development",
+    "build": "webpack --mode production",
+    "fix": "eslint --fix ./src",
+    "lint": "eslint src --ext ts --ignore-path .gitignore",
+    "test": "node ./out/test/runTest.js",
+    "vscode:prepublish": "npm run build",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "inno setup",
+    "inno pascal",
+    "innosetup",
+    "innopascal",
+    "installer"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chouzz/vscode-innosetup"
+  },
+  "homepage": "https://github.com/chouzz/vscode-innosetup#readme",
+  "bugs": {
+    "url": "https://github.com/chouzz/vscode-innosetup/issues"
+  },
+  "main": "./lib/extension",
+  "engines": {
+    "vscode": "^1.65.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:innosetup",
+    "onCommand:extension.innosetup.create-build-task",
+    "onCommand:extension.innosetup.compile"
+  ],
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Inno Setup",
+      "properties": {
+        "innosetup.pathToIscc": {
+          "type": "string",
+          "default": "ISCC.exe",
+          "description": "Specify the full path to `ISCC`"
+        },
+        "innosetup.scriptPath": {
+          "type": "string",
+          "description": "Specify the path to the Inno Setup script file to compile. If not set, the currently active document is compiled"
+        },
+        "innosetup.showNotifications": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show build notifications indicating success or failure"
+        },
+        "innosetup.alwaysShowOutput": {
+          "type": "boolean",
+          "default": true,
+          "description": "If `false` the output channel will only be shown on errors"
+        },
+        "innosetup.alwaysOpenBuildTask": {
+          "type": "boolean",
+          "default": true,
+          "description": "Specify whether to open the newly created build task"
+        }
+      }
     },
-    "scripts": {
-        "compile": "webpack --mode development",
-        "build": "webpack --mode production",
-        "fix": "eslint --fix ./src",
-        "lint": "eslint src --ext ts --ignore-path .gitignore",
-        "test": "node ./out/test/runTest.js",
-        "vscode:prepublish": "npm run build",
-        "prepare": "husky install"
-    },
-    "keywords": [
-        "inno setup",
-        "inno pascal",
-        "innosetup",
-        "innopascal",
-        "installer"
+    "languages": [
+      {
+        "id": "innosetup",
+        "aliases": [
+          "Inno Setup",
+          "InnoSetup",
+          "innosetup"
+        ],
+        "extensions": [
+          ".isl",
+          ".iss"
+        ],
+        "configuration": "./config/inno-setup.json"
+      },
+      {
+        "id": "innopascal",
+        "aliases": [
+          "Inno Pascal",
+          "InnoPascal",
+          "innopascal"
+        ]
+      }
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/chouzz/vscode-innosetup"
-    },
-    "homepage": "https://github.com/chouzz/vscode-innosetup#readme",
-    "bugs": {
-        "url": "https://github.com/chouzz/vscode-innosetup/issues"
-    },
-    "main": "./lib/extension",
-    "engines": {
-        "vscode": "^1.65.0"
-    },
-    "categories": [
-        "Programming Languages",
-        "Snippets",
-        "Other"
+    "grammars": [
+      {
+        "language": "innosetup",
+        "scopeName": "source.inno",
+        "path": "./syntaxes/inno-setup.tmLanguage",
+        "embeddedLanguages": {
+          "source.pascal.embedded.inno": "pascal"
+        }
+      },
+      {
+        "language": "innopascal",
+        "scopeName": "source.pascal.inno",
+        "path": "./syntaxes/inno-pascal.tmLanguage"
+      }
     ],
-    "activationEvents": [
-        "onLanguage:innosetup",
-        "onCommand:extension.innosetup.create-build-task",
-        "onCommand:extension.innosetup.compile"
+    "commands": [
+      {
+        "command": "extension.innosetup.compile",
+        "title": "Inno Setup: Save & Compile Script",
+        "icon": {
+          "dark": "./images/icon--build-dark.svg",
+          "light": "./images/icon--build-light.svg"
+        }
+      },
+      {
+        "command": "extension.innosetup.create-build-task",
+        "title": "Inno Setup: Create Build Task",
+        "icon": {
+          "dark": "./images/icon--task-dark.svg",
+          "light": "./images/icon--task-light.svg"
+        }
+      }
     ],
-    "contributes": {
-        "configuration": {
+    "keybindings": [
+      {
+        "key": "shift+alt+b",
+        "when": "editorFocus && editorLangId == innosetup",
+        "command": "extension.innosetup.compile"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == innosetup",
+          "command": "extension.innosetup.compile",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == innosetup",
+          "command": "extension.innosetup.create-build-task",
+          "group": "navigation@3"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "innosetup",
+        "path": "./snippets/inno-setup.json"
+      },
+      {
+        "language": "innopascal",
+        "path": "./snippets/inno-pascal.json"
+      }
+    ],
+    "problemMatchers": [
+      {
+        "name": "innosetup-5-error",
+        "severity": "error",
+        "fileLocation": "autoDetect",
+        "pattern": [
+          {
+            "regexp": "^Error on line (.*) in (.*): Column (.*).*$",
+            "file": 2,
+            "location": 1,
+            "column": 3
+          },
+          {
+            "regexp": "^(.*)$",
+            "message": 1
+          }
+        ]
+      },
+      {
+        "name": "innosetup-5-warning",
+        "severity": "warning",
+        "fileLocation": "autoDetect",
+        "pattern": [
+          {
+            "regexp": "^Warning: (.*), Line (.*), Column (.*): (.*)$",
+            "file": 1,
+            "line": 2,
+            "column": 3,
+            "message": 4
+          }
+        ]
+      },
+      {
+        "name": "innosetup-6-error",
+        "severity": "error",
+        "fileLocation": "autoDetect",
+        "pattern": [
+          {
+            "regexp": "^Error on line (.*) in (.*): (.*)$",
+            "file": 2,
+            "line": 1,
+            "column": 1,
+            "message": 3
+          }
+        ]
+      }
+    ],
+    "taskDefinitions": [
+      {
+        "type": "innosetup-build",
+        "required": [
+          "label",
+          "command"
+        ],
+        "properties": {
+          "label": {
+            "type": "string",
+            "description": "The name of the task"
+          },
+          "command": {
+            "type": "string",
+            "description": "The path of innosetup compiler, default value is ISCC.exe"
+          },
+          "args": {
+            "type": "array",
+            "description": "Additional arguments to pass to the ISCC.exe, such as /Qp /O"
+          },
+          "options": {
             "type": "object",
-            "title": "Inno Setup",
+            "description": "Additional command options",
             "properties": {
-                "innosetup.pathToIscc": {
-                    "type": "string",
-                    "default": "ISCC.exe",
-                    "description": "Specify the full path to `ISCC`"
-                },
-                "innosetup.scriptPath": {
-                    "type": "string",
-                    "description": "Specify the path to the Inno Setup script file to compile. If not set, the currently active document is compiled"
-                },
-                "innosetup.showNotifications": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Show build notifications indicating success or failure"
-                },
-                "innosetup.alwaysShowOutput": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "If `false` the output channel will only be shown on errors"
-                },
-                "innosetup.alwaysOpenBuildTask": {
-                    "type": "boolean",
-                    "default": true,
-                    "description": "Specify whether to open the newly created build task"
-                }
+              "cwd": {
+                "type": "string",
+                "description": "The current working directory of the executed program or script. If omitted Code's current workspace root is used"
+              }
             }
-        },
-        "languages": [
-            {
-                "id": "innosetup",
-                "aliases": [
-                    "Inno Setup",
-                    "InnoSetup",
-                    "innosetup"
-                ],
-                "extensions": [
-                    ".isl",
-                    ".iss"
-                ],
-                "configuration": "./config/inno-setup.json"
-            },
-            {
-                "id": "innopascal",
-                "aliases": [
-                    "Inno Pascal",
-                    "InnoPascal",
-                    "innopascal"
-                ]
-            }
-        ],
-        "grammars": [
-            {
-                "language": "innosetup",
-                "scopeName": "source.inno",
-                "path": "./syntaxes/inno-setup.tmLanguage",
-                "embeddedLanguages": {
-                    "source.pascal.embedded.inno": "pascal"
-                }
-            },
-            {
-                "language": "innopascal",
-                "scopeName": "source.pascal.inno",
-                "path": "./syntaxes/inno-pascal.tmLanguage"
-            }
-        ],
-        "commands": [
-            {
-                "command": "extension.innosetup.compile",
-                "title": "Inno Setup: Save & Compile Script",
-                "icon": {
-                    "dark": "./images/icon--build-dark.svg",
-                    "light": "./images/icon--build-light.svg"
-                }
-            },
-            {
-                "command": "extension.innosetup.create-build-task",
-                "title": "Inno Setup: Create Build Task",
-                "icon": {
-                    "dark": "./images/icon--task-dark.svg",
-                    "light": "./images/icon--task-light.svg"
-                }
-            }
-        ],
-        "keybindings": [
-            {
-                "key": "shift+alt+b",
-                "when": "editorFocus && editorLangId == innosetup",
-                "command": "extension.innosetup.compile"
-            }
-        ],
-        "menus": {
-            "editor/title": [
-                {
-                    "when": "resourceLangId == innosetup",
-                    "command": "extension.innosetup.compile",
-                    "group": "navigation@1"
-                },
-                {
-                    "when": "resourceLangId == innosetup",
-                    "command": "extension.innosetup.create-build-task",
-                    "group": "navigation@3"
-                }
-            ]
-        },
-        "snippets": [
-            {
-                "language": "innosetup",
-                "path": "./snippets/inno-setup.json"
-            },
-            {
-                "language": "innopascal",
-                "path": "./snippets/inno-pascal.json"
-            }
-        ],
-        "problemMatchers": [
-            {
-                "name": "innosetup-5-error",
-                "severity": "error",
-                "fileLocation": "autoDetect",
-                "pattern": [
-                    {
-                        "regexp": "^Error on line (.*) in (.*): Column (.*).*$",
-                        "file": 2,
-                        "location": 1,
-                        "column": 3
-                    },
-                    {
-                        "regexp": "^(.*)$",
-                        "message": 1
-                    }
-                ]
-            },
-            {
-                "name": "innosetup-5-warning",
-                "severity": "warning",
-                "fileLocation": "autoDetect",
-                "pattern": [
-                    {
-                        "regexp": "^Warning: (.*), Line (.*), Column (.*): (.*)$",
-                        "file": 1,
-                        "line": 2,
-                        "column": 3,
-                        "message": 4
-                    }
-                ]
-            },
-            {
-                "name": "innosetup-6-error",
-                "severity": "error",
-                "fileLocation": "autoDetect",
-                "pattern": [
-                    {
-                        "regexp": "^Error on line (.*) in (.*): (.*)$",
-                        "file": 2,
-                        "line": 1,
-                        "column": 1,
-                        "message": 3
-                    }
-                ]
-            }
-        ],
-        "taskDefinitions": [
-            {
-                "type": "innosetup-build",
-                "required": [ "label", "command" ],
-                "properties": {
-                    "label": {
-                        "type": "string",
-                        "description": "The name of the task"
-                    },
-                    "command": {
-                        "type": "string",
-                        "description": "The path of innosetup compiler, default value is ISCC.exe"
-                    },
-                    "args": {
-                        "type": "array",
-                        "description": "Additional arguments to pass to the ISCC.exe, such as /Qp /O"
-                    },
-                    "options": {
-                        "type": "object",
-                        "description": "Additional command options",
-                        "properties": {
-                          "cwd": {
-                            "type": "string",
-                            "description": "The current working directory of the executed program or script. If omitted Code's current workspace root is used"
-                          }
-                        }
-                      },
-                      "detail": {
-                        "type": "string",
-                        "description": "Additional details of the task"
-                      }
-                }
-            }
-        ]
-    },
-    "devDependencies": {
-        "@babel/core": "^7.20.7",
-        "@babel/preset-env": "^7.20.2",
-        "@babel/register": "^7.18.9",
-        "@types/node": "^18.11.9",
-        "@types/vscode": "^1.65.0",
-        "@typescript-eslint/eslint-plugin": "^5.45.1",
-        "@typescript-eslint/eslint-plugin-tslint": "^5.45.1",
-        "@typescript-eslint/parser": "^5.45.1",
-        "esbuild": "^0.15.16",
-        "esbuild-loader": "^2.20.0",
-        "eslint": "^8.28.0",
-        "eslint-plugin-import": "^2.26.0",
-        "husky": "^8.0.2",
-        "typescript": "^4.9.3",
-        "webpack": "^5.75.0",
-        "webpack-cli": "^5.0.1"
-    },
-    "babel": {
-        "presets": [
-            "@babel/env"
-        ]
-    },
-    "dependencies": {
-        "@vscode/extension-telemetry": "^0.7.7"
-    }
+          },
+          "detail": {
+            "type": "string",
+            "description": "Additional details of the task"
+          }
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/register": "^7.18.9",
+    "@types/node": "^18.11.9",
+    "@types/vscode": "^1.65.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.1",
+    "@typescript-eslint/eslint-plugin-tslint": "^5.45.1",
+    "@typescript-eslint/parser": "^5.45.1",
+    "esbuild": "^0.15.16",
+    "esbuild-loader": "^2.20.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.2",
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ]
+  },
+  "dependencies": {
+    "@vscode/extension-telemetry": "^0.7.7"
+  }
 }

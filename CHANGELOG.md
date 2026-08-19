@@ -1,3 +1,7 @@
+# v1.12.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.12.0)
+
+- Support specifying a script file to pass to the compiler via `innosetup.scriptPath` setting (#135)
+
 # v1.11.0 [#](https://github.com/chouzz/vscode-innosetup/releases/tag/v1.11.0)
 
 - Add three new DynamicDark directives to syntax highlighting (#132)
